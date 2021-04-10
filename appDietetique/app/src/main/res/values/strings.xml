@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">appDietetique</string>
     <string name="text2">wesh bien bien merci =D</string>
+    
+    <!-- Page d'acceuil -->
+    <string name="home_page_petit_dejeuner">Petit déjeuner</string>
+    <string name="home_page_dejeuner">Déjeuner</string>
+    <string name="home_page_diner">Dîner</string>
+    <string name="home_page_colation">Colation</string>
+    <string name="home_page_titre_recapitulatif">Récapitulatif de la journée</string>
+
 </resources>
