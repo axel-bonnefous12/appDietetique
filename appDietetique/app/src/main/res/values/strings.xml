@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">appDietetique</string>
-    <string name="text2">wesh bien bien merci =D</string>
+    <string name="text2">wesh bien merci =D</string>
     
-    <!-- Page d'acceuil -->
+    <!-- Page d'acceuil (fragment_home) -->
+    <string name="home_page_date">Vendredi 9 Avril</string>
     <string name="home_page_petit_dejeuner">Petit déjeuner</string>
     <string name="home_page_dejeuner">Déjeuner</string>
     <string name="home_page_diner">Dîner</string>
