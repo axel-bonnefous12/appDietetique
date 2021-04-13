@@ -13,4 +13,6 @@
     <color name="Orange">#F29D4B</color>
     <color name="darkOrange">#D57030</color>
     <color name="OrangeRed">#8B281F</color>
+    <color name="TEST">#FFFFFF</color>
+
 </resources>
