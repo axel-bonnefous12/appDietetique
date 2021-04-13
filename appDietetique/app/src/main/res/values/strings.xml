@@ -9,5 +9,11 @@
     <string name="home_page_diner">Dîner</string>
     <string name="home_page_colation">Colation</string>
     <string name="home_page_titre_recapitulatif">Récapitulatif de la journée</string>
+    <string name="home_button">home</string>
+    <string name="user_profil_button">user_profil</string>
+    <string name="search_loup_button">search_loup</string>
 
-</resources>
+    <!-- BOTTOM NAVIGATION home -->
+
+
+    </resources>
