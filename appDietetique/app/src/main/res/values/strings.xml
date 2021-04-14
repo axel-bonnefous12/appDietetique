@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">appDietetique</string>
     <string name="text2">wesh bien merci =D</string>
-    
+
     <!-- Page d'acceuil (fragment_home) -->
     <string name="home_page_date">Vendredi 9 Avril</string>
     <string name="home_page_petit_dejeuner">Petit déjeuner</string>
@@ -9,11 +9,16 @@
     <string name="home_page_diner">Dîner</string>
     <string name="home_page_colation">Colation</string>
     <string name="home_page_titre_recapitulatif">Récapitulatif de la journée</string>
-    <string name="home_button">home</string>
-    <string name="user_profil_button">user_profil</string>
-    <string name="search_loup_button">search_loup</string>
+    <string name="home_button">Accueil</string>
+    <string name="user_profil_button">Profil</string>
+    <string name="search_loup_button">Recherche</string>
+    <string name="fragment_user_profil">fragment_user_profil</string>
+    <string name="fragment_home">fragment_home</string>
+    <string name="fragment_search">fragment_search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- BOTTOM NAVIGATION home -->
 
 
-    </resources>
+</resources>

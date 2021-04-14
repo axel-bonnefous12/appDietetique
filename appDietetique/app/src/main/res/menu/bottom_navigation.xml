@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/nav_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/home_button" />
-
-    <item
-        android:id="@+id/nav_user_profil"
-        android:icon="@drawable/ic_user_profile_white_24dp"
-        android:title="@string/user_profil_button" />
 
     <item
         android:id="@+id/nav_search_loup"
         android:icon="@drawable/ic_search_loup_white_24dp"
         android:title="@string/search_loup_button" />
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/home_button" />
+    <item
+        android:id="@+id/nav_user_profil"
+        android:icon="@drawable/ic_user_profile_white_24dp"
+        android:title="@string/user_profil_button" />
 
 </menu>
