@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,9 +13,50 @@
         android:layout_marginVertical="10dp"
         android:text="@string/home_page_date"
         android:background="@drawable/radius"
-        android:backgroundTint="@color/Orange"
+        app:backgroundTint="@color/Orange"
         android:textColor="@color/white"
         android:gravity="center"
         android:textSize="20sp"/>
 
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/button_petit_dej"
+            android:text="@string/home_page_petit_dejeuner"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/radius"
+            app:backgroundTint="@color/Orange"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
+        <Button
+            android:text="@string/home_page_colation"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/radius"
+            app:backgroundTint="@color/Orange"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
+        <Button
+            android:text="@string/home_page_dejeuner"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/radius"
+            app:backgroundTint="@color/Orange"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
+        <Button
+            android:text="@string/home_page_diner"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/radius"
+            app:backgroundTint="@color/Orange"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
+    </GridLayout>
 </LinearLayout>
