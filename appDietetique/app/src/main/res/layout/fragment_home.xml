@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,8 +11,7 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="10dp"
         android:text="@string/home_page_date"
-        android:background="@drawable/radius"
-        app:backgroundTint="@color/Orange"
+        android:background="@drawable/shape_orange_radius"
         android:textColor="@color/white"
         android:gravity="center"
         android:textSize="20sp"/>
@@ -30,33 +28,45 @@
             android:text="@string/home_page_petit_dejeuner"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/radius"
-            app:backgroundTint="@color/Orange"
+            android:background="@drawable/shape_orange_radius"
             android:layout_gravity="center"
             android:layout_margin="10dp"/>
         <Button
             android:text="@string/home_page_colation"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/radius"
-            app:backgroundTint="@color/Orange"
+            android:background="@drawable/shape_orange_radius"
             android:layout_gravity="center"
             android:layout_margin="10dp"/>
         <Button
             android:text="@string/home_page_dejeuner"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/radius"
-            app:backgroundTint="@color/Orange"
+            android:background="@drawable/shape_orange_radius"
             android:layout_gravity="center"
             android:layout_margin="10dp"/>
         <Button
             android:text="@string/home_page_diner"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/radius"
-            app:backgroundTint="@color/Orange"
+            android:background="@drawable/shape_orange_radius"
             android:layout_gravity="center"
             android:layout_margin="10dp"/>
     </GridLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/home_page_titre_recapitulatif"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_lightgrey_radius"
+        android:layout_margin="20dp">
+    </LinearLayout>
+
+
 </LinearLayout>
