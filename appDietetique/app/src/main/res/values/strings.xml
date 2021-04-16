@@ -9,6 +9,11 @@
     <string name="home_page_diner">Dîner</string>
     <string name="home_page_colation">Colation</string>
     <string name="home_page_titre_recapitulatif">Récapitulatif de la journée</string>
+    <string name="home_page_proteines">Protéines</string>
+    <string name="home_page_graisses">Graisses</string>
+    <string name="home_page_glucides">Glucides</string>
+
+    <!-- -->
     <string name="home_button">Accueil</string>
     <string name="user_profil_button">Profil</string>
     <string name="search_loup_button">Recherche</string>
