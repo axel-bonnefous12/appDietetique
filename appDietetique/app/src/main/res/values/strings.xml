@@ -26,5 +26,12 @@
 
     <!-- BOTTOM NAVIGATION home -->
 
+    <!-- fragment_repas -->
+    <string name="repas_titre">Repas</string>
+    <string name="repas_titre_recapitulatif">Récapitulatif du repas</string>
+    <string name="repas_proteines">@string/home_page_proteines</string>
+    <string name="repas_graisses">@string/home_page_graisses</string>
+    <string name="repas_glucides">@string/home_page_glucides</string>
+    <string name="repas_calories">@string/home_page_calories</string>
 
 </resources>
