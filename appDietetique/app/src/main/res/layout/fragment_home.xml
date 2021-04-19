@@ -78,7 +78,7 @@
     <!-- Layout recap de la journée -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="236dp"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/shape_lightgrey_radius"
         android:orientation="vertical"
