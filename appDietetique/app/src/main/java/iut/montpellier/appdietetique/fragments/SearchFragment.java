@@ -11,10 +11,14 @@ import androidx.fragment.app.Fragment;
 
 import iut.montpellier.appdietetique.R;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment
+{
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
         return inflater.inflate(R.layout.fragment_search,container, false);
     }
+
+    
 }
