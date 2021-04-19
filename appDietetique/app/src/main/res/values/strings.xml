@@ -12,6 +12,7 @@
     <string name="home_page_proteines">Protéines</string>
     <string name="home_page_graisses">Graisses</string>
     <string name="home_page_glucides">Glucides</string>
+    <string name="home_page_calories">Calories</string>
 
     <!-- -->
     <string name="home_button">Accueil</string>

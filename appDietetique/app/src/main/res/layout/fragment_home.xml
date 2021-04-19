@@ -123,6 +123,50 @@
                 android:textSize="20sp" />
         </LinearLayout>
 
+        <!-- layout glucides -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- titre glucides -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/home_page_glucides"
+                android:textSize="20sp" />
+
+            <!-- valeur glucides -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="0"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!-- layout calories -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- titre calories -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/home_page_calories"
+                android:textSize="20sp" />
+
+            <!-- valeur calories -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="0"
+                android:textSize="20sp" />
+        </LinearLayout>
+
     </LinearLayout>
 
 
