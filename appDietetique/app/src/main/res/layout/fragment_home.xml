@@ -6,6 +6,7 @@
 
     <!-- Affichage date -->
     <TextView
+        android:id="@+id/date_du_jour"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="30dp"
@@ -36,6 +37,7 @@
 
         <!-- Bouton colation -->
         <Button
+            android:id="@+id/button_colation"
             android:text="@string/home_page_colation"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -45,6 +47,7 @@
 
         <!-- Bouton dejeuner -->
         <Button
+            android:id="@+id/button_dejeuner"
             android:text="@string/home_page_dejeuner"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -54,6 +57,7 @@
 
         <!-- Bouton diner -->
         <Button
+            android:id="@+id/button_diner"
             android:text="@string/home_page_diner"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -64,6 +68,7 @@
 
     <!-- titre recap journalier -->
     <TextView
+        android:id="@+id/titre_recap_journalier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/home_page_titre_recapitulatif"
@@ -94,6 +99,7 @@
 
             <!-- valeur proteine -->
             <TextView
+                android:id="@+id/valeur_proteines"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
@@ -116,6 +122,7 @@
 
             <!-- valeur graisse -->
             <TextView
+                android:id="@+id/valeur_graisses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
@@ -138,6 +145,7 @@
 
             <!-- valeur glucides -->
             <TextView
+                android:id="@+id/valeur_glucides"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
@@ -160,6 +168,7 @@
 
             <!-- valeur calories -->
             <TextView
+                android:id="@+id/valeur_calories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
