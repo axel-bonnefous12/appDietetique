@@ -68,7 +68,7 @@
 
     <!-- titre recap journalier -->
     <TextView
-        android:id="@+id/titre_recap_journalier"
+        android:id="@+id/titre_recapjournalier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/home_page_titre_recapitulatif"
