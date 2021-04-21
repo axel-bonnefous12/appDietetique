@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         //creation des boutons de navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+        bottomNav.setSelectedItemId(R.id.nav_home);// set nav_hom selectionné à la creation
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
