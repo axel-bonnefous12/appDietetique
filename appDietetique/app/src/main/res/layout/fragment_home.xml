@@ -35,9 +35,9 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"/>
 
-        <!-- Bouton colation -->
+        <!-- Bouton collation -->
         <Button
-            android:id="@+id/button_colation"
+            android:id="@+id/button_collation"
             android:text="@string/home_page_colation"
             android:layout_width="100dp"
             android:layout_height="100dp"
