@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -25,23 +25,24 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
-      <connection connection-id="e9fb9955-1b39-4bb6-a600-121fca8852f2">
-        <schema name="main" object-types="column, view, table, constraint, dataset trigger, index" />
+      <connection connection-id="f391e3d7-6532-45ce-ad24-ab00eeed2312">
+        <schema name="main" object-types="table, view" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="e9fb9955-1b39-4bb6-a600-121fca8852f2">
-      <console name="BDD_App_Dietetique" type="STANDARD" schema="main" session="Main" />
+    <connection id="f391e3d7-6532-45ce-ad24-ab00eeed2312">
+      <console name="Connection" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="e9fb9955-1b39-4bb6-a600-121fca8852f2" object-ref="schemas/main/tables/Table _App_Dietetique" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="e9fb9955-1b39-4bb6-a600-121fca8852f2" />
+    <connection id="f391e3d7-6532-45ce-ad24-ab00eeed2312" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="f391e3d7-6532-45ce-ad24-ab00eeed2312" dataset="main.Table _App_Dietetique" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -69,9 +70,9 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="e9fb9955-1b39-4bb6-a600-121fca8852f2" active="true">
+      <connection id="f391e3d7-6532-45ce-ad24-ab00eeed2312" active="true">
         <database>
-          <name value="BDD_App_Dietetique" />
+          <name value="Connection" />
           <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
@@ -84,7 +85,7 @@
           <port value="1234" />
           <database value="database" />
           <files>
-            <file path="$PROJECT_DIR$/../data.sqlite" schema="main" />
+            <file path="$PROJECT_DIR$/app/src/main/assets/data.sqlite" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />

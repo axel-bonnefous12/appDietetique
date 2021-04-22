@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+
 import iut.montpellier.appdietetique.R;
 
 public class SearchFragment extends Fragment
@@ -19,6 +20,7 @@ public class SearchFragment extends Fragment
     {
         return inflater.inflate(R.layout.fragment_search,container, false);
     }
+
 
     
 }
