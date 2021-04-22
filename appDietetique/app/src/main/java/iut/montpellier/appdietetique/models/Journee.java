@@ -13,6 +13,7 @@ public class Journee {
     private Dejeuner dejeuner;
     private Diner diner;
 
+    // ----- Constructeurs ----- //
     public Journee(Date date, float totalProteines, float totalGraisses, float totalGlucides, float totalCalories, PetitDejeuner petitDejeuner, Collation collation, Dejeuner dejeuner, Diner diner) {
         this.date = date;
         this.totalProteines = totalProteines;
@@ -37,6 +38,40 @@ public class Journee {
         this.diner = new Diner();
     }
 
+    // ----- Getter methods ----- //
+    public Date getDate() {
+        return date;
+    }
 
+    public float getTotalProteines() {
+        return totalProteines;
+    }
 
+    public float getTotalGraisses() {
+        return totalGraisses;
+    }
+
+    public float getTotalGlucides() {
+        return totalGlucides;
+    }
+
+    public float getTotalCalories() {
+        return totalCalories;
+    }
+
+    public PetitDejeuner getPetitDejeuner() {
+        return petitDejeuner;
+    }
+
+    public Collation getCollation() {
+        return collation;
+    }
+
+    public Dejeuner getDejeuner() {
+        return dejeuner;
+    }
+
+    public Diner getDiner() {
+        return diner;
+    }
 }
