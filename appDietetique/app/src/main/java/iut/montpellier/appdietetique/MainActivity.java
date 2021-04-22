@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
 import iut.montpellier.appdietetique.fragments.HomeFragment;
 import iut.montpellier.appdietetique.fragments.SearchFragment;
 import iut.montpellier.appdietetique.fragments.UserFragment;
