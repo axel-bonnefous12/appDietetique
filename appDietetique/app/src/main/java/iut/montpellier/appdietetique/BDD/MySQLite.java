@@ -28,7 +28,9 @@ import java.io.OutputStream;
 
 
         public static synchronized MySQLite getInstance(MySQLite context) {
-            if (sInstance == null) { sInstance = new MySQLite(context); }
+
+            /* if (sInstance == null) { sInstance = new MySQLite(context); } */
+
             return sInstance;
         }
 
@@ -122,6 +124,10 @@ import java.io.OutputStream;
             }
         } // onUpgrade
 
+/*
+
+
+
     DietetiqueManager m = new DietetiqueManager(this); // gestionnaire de la table "Dietetique"
 
     m.open(); // ouverture de la table en lecture/écriture
@@ -143,4 +149,6 @@ import java.io.OutputStream;
         // fermeture du gestionnaire
     m.close();
 
+*/
     } // class MySQLite
+
