@@ -8,8 +8,12 @@ import java.util.ArrayList;
 public class Dejeuner extends Repas{
 
     // ----- Constructeurs ----- //
-    public Dejeuner(float totalProteines, float totalGraisses, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
-        super("Déjeuner", totalProteines, totalGraisses, totalGlucides, totalCalories, plats);
+    public Dejeuner(float totalProteines, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
+        super("Déjeuner", totalProteines, totalGlucides, totalCalories, plats);
+    }
+
+    public Dejeuner(ArrayList<Plat> plats){
+        super("Déjeuner", plats);
     }
 
     public Dejeuner(){

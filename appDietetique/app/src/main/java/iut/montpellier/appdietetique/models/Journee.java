@@ -5,7 +5,6 @@ import java.util.Date;
 public class Journee {
     private Date date;
     private float totalProteines;
-    private float totalGraisses;
     private float totalGlucides;
     private float totalCalories;
     private PetitDejeuner petitDejeuner;
@@ -14,10 +13,9 @@ public class Journee {
     private Diner diner;
 
     // ----- Constructeurs ----- //
-    public Journee(Date date, float totalProteines, float totalGraisses, float totalGlucides, float totalCalories, PetitDejeuner petitDejeuner, Collation collation, Dejeuner dejeuner, Diner diner) {
+    public Journee(Date date, float totalProteines, float totalGlucides, float totalCalories, PetitDejeuner petitDejeuner, Collation collation, Dejeuner dejeuner, Diner diner) {
         this.date = date;
         this.totalProteines = totalProteines;
-        this.totalGraisses = totalGraisses;
         this.totalGlucides = totalGlucides;
         this.totalCalories = totalCalories;
         this.petitDejeuner = petitDejeuner;
@@ -26,16 +24,31 @@ public class Journee {
         this.diner = diner;
     }
 
+    public Journee(Date date, PetitDejeuner petitDejeuner, Collation collation, Dejeuner dejeuner, Diner diner){
+        this.date = date;
+        this.petitDejeuner = petitDejeuner;
+        this.collation = collation;
+        this.dejeuner = dejeuner;
+        this.diner = diner;
+        calculerTotaux();
+    }
+
     public Journee(Date date){
         this.date = date;
         this.totalProteines = 0;
-        this.totalGraisses = 0;
         this.totalGlucides = 0;
         this.totalCalories = 0;
         this.petitDejeuner = new PetitDejeuner();
         this.collation = new Collation();
         this.dejeuner = new Dejeuner();
         this.diner = new Diner();
+    }
+
+    // ----- Utils methods ----- //
+    private void calculerTotaux(){
+        this.totalProteines = petitDejeuner.getTotalProteines() + collation.getTotalProteines() + dejeuner.getTotalProteines() + diner.getTotalProteines();
+        this.totalGlucides = petitDejeuner.getTotalGlucides() + collation.getTotalGlucides() + dejeuner.getTotalGlucides() + diner.getTotalGlucides();
+        this.totalCalories = petitDejeuner.getTotalCalories() + collation.getTotalCalories() + dejeuner.getTotalCalories() + diner.getTotalCalories();
     }
 
     // ----- Getter methods ----- //
@@ -45,10 +58,6 @@ public class Journee {
 
     public float getTotalProteines() {
         return totalProteines;
-    }
-
-    public float getTotalGraisses() {
-        return totalGraisses;
     }
 
     public float getTotalGlucides() {

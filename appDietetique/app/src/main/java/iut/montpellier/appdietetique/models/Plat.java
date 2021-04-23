@@ -6,7 +6,6 @@ import android.os.Parcelable;
 public class Plat implements Parcelable {
     private String nom;
     private float proteines;
-    private float graisses;
     private float glucides;
     private float calories;
     private float quantite;
@@ -16,10 +15,9 @@ public class Plat implements Parcelable {
     private int i;
 
     // Constructeur
-    public Plat(String nom, float proteines, float graisses, float glucides, float calories, float quantite) {
+    public Plat(String nom, float proteines, float glucides, float calories, float quantite) {
         this.nom = nom;
         this.proteines = proteines;
-        this.graisses = graisses;
         this.glucides = glucides;
         this.calories = calories;
         this.quantite = quantite;
@@ -32,10 +30,6 @@ public class Plat implements Parcelable {
 
     public float getProteines() {
         return proteines;
-    }
-
-    public float getGraisses() {
-        return graisses;
     }
 
     public float getGlucides() {
@@ -56,7 +50,6 @@ public class Plat implements Parcelable {
     protected Plat(Parcel in) {
         nom = in.readString();
         proteines = in.readFloat();
-        graisses = in.readFloat();
         glucides = in.readFloat();
         calories = in.readFloat();
         quantite = in.readFloat();
@@ -68,7 +61,6 @@ public class Plat implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(nom);
         dest.writeFloat(proteines);
-        dest.writeFloat(graisses);
         dest.writeFloat(glucides);
         dest.writeFloat(calories);
         dest.writeFloat(quantite);

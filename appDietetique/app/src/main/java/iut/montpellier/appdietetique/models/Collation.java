@@ -8,8 +8,12 @@ import java.util.ArrayList;
 public class Collation extends Repas{
 
     // ----- Constructeurs ----- //
-    public Collation(float totalProteines, float totalGraisses, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
-        super("Collation", totalProteines, totalGraisses, totalGlucides, totalCalories, plats);
+    public Collation(float totalProteines, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
+        super("Collation", totalProteines, totalGlucides, totalCalories, plats);
+    }
+
+    public Collation(ArrayList<Plat> plats){
+        super("Collation", plats);
     }
 
     public Collation(){

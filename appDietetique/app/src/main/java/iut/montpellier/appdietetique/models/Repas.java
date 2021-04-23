@@ -10,25 +10,27 @@ import java.util.Arrays;
 public abstract class Repas implements Parcelable {
     private String typeDuRepas;
     private float totalProteines;
-    private float totalGraisses;
     private float totalGlucides;
     private float totalCalories;
     private ArrayList<Plat> plats;
 
     // ----- Constructeurs ----- //
-    public Repas(String typeDuRepas, float totalProteines, float totalGraisses, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
+    public Repas(String typeDuRepas, float totalProteines, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
         this.typeDuRepas = typeDuRepas;
         this.totalProteines = totalProteines;
-        this.totalGraisses = totalGraisses;
         this.totalGlucides = totalGlucides;
         this.totalCalories = totalCalories;
         this.plats = plats;
     }
 
+    public Repas(String typeDuRepas, ArrayList<Plat> plats){
+        this.plats = plats;
+        calculerTotaux();
+    }
+
     public Repas(String typeDuRepas){
         this.typeDuRepas = typeDuRepas;
         this.totalProteines = 0;
-        this.totalGraisses = 0;
         this.totalGlucides = 0;
         this.totalCalories = 0;
         this.plats = new ArrayList<>();
@@ -38,13 +40,11 @@ public abstract class Repas implements Parcelable {
     // ----- Utils methods ----- //
     public void calculerTotaux(){
         totalProteines = 0;
-        totalGraisses = 0;
         totalGlucides = 0;
         totalCalories = 0;
 
         for (Plat plat: plats) {
             totalProteines = plat.getProteines();
-            totalGraisses = plat.getGraisses();
             totalGlucides = plat.getGlucides();
             totalCalories = plat.getCalories();
         }
@@ -58,10 +58,6 @@ public abstract class Repas implements Parcelable {
 
     public float getTotalProteines() {
         return totalProteines;
-    }
-
-    public float getTotalGraisses() {
-        return totalGraisses;
     }
 
     public float getTotalGlucides() {
@@ -92,7 +88,6 @@ public abstract class Repas implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(typeDuRepas);
         parcel.writeFloat(totalProteines);
-        parcel.writeFloat(totalGraisses);
         parcel.writeFloat(totalGlucides);
         parcel.writeFloat(totalCalories);
         parcel.writeParcelableArray(plats.toArray(new Plat[plats.size()]), i);
@@ -102,7 +97,6 @@ public abstract class Repas implements Parcelable {
     public void readFromParcel(Parcel in){
         typeDuRepas = in.readString();
         totalProteines = in.readFloat();
-        totalGraisses = in.readFloat();
         totalGlucides = in.readFloat();
         totalCalories = in.readFloat();
         plats = new ArrayList(Arrays.asList(in.readParcelableArray(Plat.class.getClassLoader())));
