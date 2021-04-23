@@ -1,15 +1,23 @@
 package iut.montpellier.appdietetique.models;
 
-import java.util.ArrayList;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public abstract class Repas {
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public abstract class Repas implements Parcelable {
+    private String typeDuRepas;
     private float totalProteines;
     private float totalGraisses;
     private float totalGlucides;
     private float totalCalories;
     private ArrayList<Plat> plats;
 
-    public Repas(float totalProteines, float totalGraisses, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
+    // ----- Constructeurs ----- //
+    public Repas(String typeDuRepas, float totalProteines, float totalGraisses, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
+        this.typeDuRepas = typeDuRepas;
         this.totalProteines = totalProteines;
         this.totalGraisses = totalGraisses;
         this.totalGlucides = totalGlucides;
@@ -17,7 +25,8 @@ public abstract class Repas {
         this.plats = plats;
     }
 
-    public Repas(){
+    public Repas(String typeDuRepas){
+        this.typeDuRepas = typeDuRepas;
         this.totalProteines = 0;
         this.totalGraisses = 0;
         this.totalGlucides = 0;
@@ -25,6 +34,8 @@ public abstract class Repas {
         this.plats = new ArrayList<>();
     }
 
+
+    // ----- Utils methods ----- //
     public void calculerTotaux(){
         totalProteines = 0;
         totalGraisses = 0;
@@ -37,6 +48,12 @@ public abstract class Repas {
             totalGlucides = plat.getGlucides();
             totalCalories = plat.getCalories();
         }
+    }
+
+
+    // ----- Getter methods ----- //
+    public String getTypeDuRepas() {
+        return typeDuRepas;
     }
 
     public float getTotalProteines() {
@@ -53,6 +70,42 @@ public abstract class Repas {
 
     public float getTotalCalories() {
         return totalCalories;
+    }
+
+
+    // ----- Parcelable interface methods ----- //
+
+    // Désérialisation des attributs
+    protected Repas(Parcel in){
+        plats = new ArrayList<Plat>();
+        readFromParcel(in);
+    }
+
+    // description des objets de types complexes
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    // Serialisation des attributs
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(typeDuRepas);
+        parcel.writeFloat(totalProteines);
+        parcel.writeFloat(totalGraisses);
+        parcel.writeFloat(totalGlucides);
+        parcel.writeFloat(totalCalories);
+        parcel.writeParcelableArray(plats.toArray(new Plat[plats.size()]), i);
+    }
+
+    // Désérialisation des attributs
+    public void readFromParcel(Parcel in){
+        typeDuRepas = in.readString();
+        totalProteines = in.readFloat();
+        totalGraisses = in.readFloat();
+        totalGlucides = in.readFloat();
+        totalCalories = in.readFloat();
+        plats = new ArrayList(Arrays.asList(in.readParcelableArray(Plat.class.getClassLoader())));
     }
 
 
