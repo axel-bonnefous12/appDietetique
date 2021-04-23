@@ -24,6 +24,7 @@ public abstract class Repas implements Parcelable {
     }
 
     public Repas(String typeDuRepas, ArrayList<Plat> plats){
+        this.typeDuRepas = typeDuRepas;
         this.plats = plats;
         calculerTotaux();
     }
@@ -44,9 +45,9 @@ public abstract class Repas implements Parcelable {
         totalCalories = 0;
 
         for (Plat plat: plats) {
-            totalProteines = plat.getProteines();
-            totalGlucides = plat.getGlucides();
-            totalCalories = plat.getCalories();
+            totalProteines = totalProteines + plat.getProteines();
+            totalGlucides = totalGlucides + plat.getGlucides();
+            totalCalories = totalCalories + plat.getCalories();
         }
     }
 
