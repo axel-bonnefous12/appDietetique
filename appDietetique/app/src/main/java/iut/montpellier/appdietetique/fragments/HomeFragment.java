@@ -12,11 +12,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Calendar;
 
 import iut.montpellier.appdietetique.R;
+import iut.montpellier.appdietetique.models.Collation;
+import iut.montpellier.appdietetique.models.Dejeuner;
+import iut.montpellier.appdietetique.models.Diner;
 import iut.montpellier.appdietetique.models.Journee;
+import iut.montpellier.appdietetique.models.PetitDejeuner;
+import iut.montpellier.appdietetique.models.Plat;
 import iut.montpellier.appdietetique.models.Repas;
 
 public class HomeFragment extends Fragment {
@@ -26,7 +32,19 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home,container, false);
 
-        Journee journee = new Journee(Calendar.getInstance().getTime());
+        Plat plat1 = new Plat("test",11,9,150,100);
+        Plat plat2 = new Plat("test2",8,9,200,100);
+
+        ArrayList<Plat> listPlats = new ArrayList<>();
+        listPlats.add(plat1);
+        listPlats.add(plat2);
+
+        PetitDejeuner petitDejeuner = new PetitDejeuner(listPlats);
+        Collation collation = new Collation(listPlats);
+        Dejeuner dejeuner = new Dejeuner(listPlats);
+        Diner diner = new Diner(listPlats);
+
+        Journee journee = new Journee(Calendar.getInstance().getTime(),petitDejeuner,collation,dejeuner,diner);
 
         //initialisation du bouton petit dej
         Button boutonPetitDej = initBoutonsRepas(view, R.id.button_petit_dej, journee.getPetitDejeuner());
