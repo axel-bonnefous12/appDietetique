@@ -69,6 +69,13 @@ public abstract class Repas implements Parcelable {
         return totalCalories;
     }
 
+    public ArrayList<Plat> getPlats() {
+        return plats;
+    }
+
+    public void setPlats(ArrayList<Plat> plats) {
+        this.plats = plats;
+    }
 
     // ----- Parcelable interface methods ----- //
 
@@ -100,7 +107,7 @@ public abstract class Repas implements Parcelable {
         totalProteines = in.readFloat();
         totalGlucides = in.readFloat();
         totalCalories = in.readFloat();
-        plats = new ArrayList(Arrays.asList(in.readParcelableArray(Plat.class.getClassLoader())));
+        in.readTypedList(this.plats, Plat.CREATOR);
     }
 
 
