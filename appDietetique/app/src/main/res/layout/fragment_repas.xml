@@ -74,29 +74,6 @@
                 android:textSize="20sp" />
         </LinearLayout>
 
-        <!-- layout graisse -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!-- titre graise -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/repas_graisses"
-                android:textSize="20sp" />
-
-            <!-- valeur graisse -->
-            <TextView
-                android:id="@+id/valeur_graisses"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="0"
-                android:textSize="20sp" />
-        </LinearLayout>
-
         <!-- layout glucides -->
         <LinearLayout
             android:layout_width="match_parent"
