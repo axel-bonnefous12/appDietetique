@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +21,8 @@ import androidx.fragment.app.FragmentTransaction;
 import java.util.Objects;
 
 import iut.montpellier.appdietetique.R;
+import iut.montpellier.appdietetique.adapters.PlatItemAdapter;
+import iut.montpellier.appdietetique.models.Plat;
 import iut.montpellier.appdietetique.models.Repas;
 
 public class RepasFragment extends Fragment {
@@ -31,9 +35,8 @@ public class RepasFragment extends Fragment {
         Bundle bundle = this.getArguments();
         Repas data = bundle.getParcelable("data");
 
-        // Mise à jour du champ de text titre
-        TextView titre = view.findViewById(R.id.titrePage);
-        titre.setText(data.getTypeDuRepas());
+        // Initialise les text view avec les veleurs du repas
+        initTextViews(view, data);
 
         // associer a l'image back arrow l'action de retourner a la journee
         ImageView backButton = view.findViewById(R.id.back_icon);
@@ -44,5 +47,30 @@ public class RepasFragment extends Fragment {
             fragmentTransaction.commit();
         });
         return view;
+    }
+
+    private void initTextViews(View view, Repas data){
+        // Mise à jour de la listView avec les plats
+        ListView listPlats = view.findViewById(R.id.liste_de_plat);
+
+        listPlats.setAdapter(new PlatItemAdapter(getContext(),data.getPlats()));
+
+
+
+        // Mise à jour du champ de text titre
+        TextView titre = view.findViewById(R.id.titrePage);
+        titre.setText(data.getTypeDuRepas());
+
+        // Mise à jour du champ de valeur total de proteines
+        TextView totalProteines = view.findViewById(R.id.valeur_proteines);
+        totalProteines.setText("" + data.getTotalProteines());
+
+        // Mise à jour du champ de valeur total de proteines
+        TextView totalGlucides = view.findViewById(R.id.valeur_glucides);
+        totalGlucides.setText("" + data.getTotalGlucides());
+
+        // Mise à jour du champ de valeur total de calories
+        TextView totalCalories = view.findViewById(R.id.valeur_calories);
+        totalCalories.setText("" + data.getTotalCalories());
     }
 }

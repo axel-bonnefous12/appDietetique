@@ -32,6 +32,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home,container, false);
 
+        // ----- creation de repas test (a retirer!) ----- //
         Plat plat1 = new Plat("test",11,9,150,100);
         Plat plat2 = new Plat("test2",8,9,200,100);
 
@@ -45,6 +46,9 @@ public class HomeFragment extends Fragment {
         Diner diner = new Diner(listPlats);
 
         Journee journee = new Journee(Calendar.getInstance().getTime(),petitDejeuner,collation,dejeuner,diner);
+
+        // ----- ----- //
+
 
         //initialisation du bouton petit dej
         Button boutonPetitDej = initBoutonsRepas(view, R.id.button_petit_dej, journee.getPetitDejeuner());
