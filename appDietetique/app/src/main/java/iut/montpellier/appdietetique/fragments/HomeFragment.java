@@ -1,11 +1,11 @@
 package iut.montpellier.appdietetique.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,40 +27,57 @@ import iut.montpellier.appdietetique.models.Repas;
 
 public class HomeFragment extends Fragment {
 
+    Button boutonPetitDej;
+    Button boutonCollation;
+    Button boutonDejeuner;
+    Button boutonDiner;
+
+    TextView textView_titreDateDuJour;
+
+    TextView textView_totalProteines;
+    TextView textView_totalGlucides;
+    TextView textView_totalCalories;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home,container, false);
 
         // ----- creation de repas test (a retirer!) ----- //
-        Plat plat1 = new Plat("test",11,9,150,100);
-        Plat plat2 = new Plat("test2",8,9,200,100);
+        Plat plat1 = new Plat("patates",11,9,150,100);
+        Plat plat2 = new Plat("merguez",8,9,200,100);
 
-        ArrayList<Plat> listPlats = new ArrayList<>();
-        listPlats.add(plat1);
-        listPlats.add(plat2);
+        Plat plat3 = new Plat("moulaga",20,12,400,100);
 
-        PetitDejeuner petitDejeuner = new PetitDejeuner(listPlats);
-        Collation collation = new Collation(listPlats);
-        Dejeuner dejeuner = new Dejeuner(listPlats);
-        Diner diner = new Diner(listPlats);
+        ArrayList<Plat> listPlatsPetitDej = new ArrayList<>();
+        listPlatsPetitDej.add(plat1);
+        listPlatsPetitDej.add(plat2);
+
+        ArrayList<Plat> listPlatsCollation = new ArrayList<>();
+        listPlatsCollation.add(plat3);
+
+        PetitDejeuner petitDejeuner = new PetitDejeuner(listPlatsPetitDej);
+        Collation collation = new Collation(listPlatsCollation);
+        Dejeuner dejeuner = new Dejeuner(new ArrayList<>());
+        Diner diner = new Diner(new ArrayList<>());
 
         Journee journee = new Journee(Calendar.getInstance().getTime(),petitDejeuner,collation,dejeuner,diner);
 
         // ----- ----- //
 
-
         //initialisation du bouton petit dej
-        Button boutonPetitDej = initBoutonsRepas(view, R.id.button_petit_dej, journee.getPetitDejeuner());
+        boutonPetitDej = initBoutonsRepas(view, R.id.button_petit_dej, journee.getPetitDejeuner());
 
         //initialisation du bouton collation
-        Button boutonCollation = initBoutonsRepas(view, R.id.button_collation, journee.getCollation());
+        boutonCollation = initBoutonsRepas(view, R.id.button_collation, journee.getCollation());
 
         //initialisation du bouton dejeuner
-        Button boutonDejeuner = initBoutonsRepas(view, R.id.button_dejeuner, journee.getDejeuner());
+        boutonDejeuner = initBoutonsRepas(view, R.id.button_dejeuner, journee.getDejeuner());
 
         //initialisation du bouton diner
-        Button boutonDiner = initBoutonsRepas(view, R.id.button_diner, journee.getDiner());
+        boutonDiner = initBoutonsRepas(view, R.id.button_diner, journee.getDiner());
+
+        initTextViews(view, journee);
 
         return view;
     }
@@ -92,6 +109,17 @@ public class HomeFragment extends Fragment {
         return bouton;
     }
 
+    private void initTextViews(View view, Journee journee) {
+
+        textView_totalProteines = view.findViewById(R.id.valeur_proteines);
+        textView_totalProteines.setText("" + journee.getTotalProteines());
+
+        textView_totalGlucides = view.findViewById(R.id.valeur_glucides);
+        textView_totalGlucides.setText("" + journee.getTotalGlucides());
+
+        textView_totalCalories = view.findViewById(R.id.valeur_calories);
+        textView_totalCalories.setText("" + journee.getTotalCalories());
+    }
 
 
 }
