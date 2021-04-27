@@ -4,8 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -14,7 +19,10 @@ import iut.montpellier.appdietetique.fragments.HomeFragment;
 import iut.montpellier.appdietetique.fragments.SearchFragment;
 import iut.montpellier.appdietetique.fragments.UserFragment;
 
-public class MainActivity extends AppCompatActivity {
+import static java.sql.Types.VARCHAR;
+
+public class MainActivity extends AppCompatActivity
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

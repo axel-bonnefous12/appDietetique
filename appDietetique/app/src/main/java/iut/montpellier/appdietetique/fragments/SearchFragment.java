@@ -1,5 +1,6 @@
 package iut.montpellier.appdietetique.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.widget.Button;
+import android.widget.EditText;
+
 
 import iut.montpellier.appdietetique.R;
+
+import static java.sql.Types.VARCHAR;
 
 public class SearchFragment extends Fragment
 {
@@ -22,5 +30,4 @@ public class SearchFragment extends Fragment
     }
 
 
-    
 }
