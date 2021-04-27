@@ -16,20 +16,21 @@ import java.io.OutputStream;
 
 
 
-    class MySQLite extends SQLiteOpenHelper {
+    class MySQLite extends SQLiteOpenHelper
+    {
 
         private final Context mycontext;
         private static MySQLite sInstance;
 
         private static final int DATABASE_VERSION = 1; // l'incrément appelle onUpgrade(), décrément => onDowngrade()
         private String DATABASE_PATH; // chemin défini dans le constructeur
-        private static final String DATABASE_NAME = "db.sqlite";
+        private static final String DATABASE_NAME = "data.sqlite";
 
 
 
         public static synchronized MySQLite getInstance(MySQLite context) {
 
-            /* if (sInstance == null) { sInstance = new MySQLite(context); } */
+            /*if (sInstance == null) { sInstance = new MySQLite(context); } */
 
             return sInstance;
         }
@@ -124,10 +125,10 @@ import java.io.OutputStream;
             }
         } // onUpgrade
 
+
+
+
 /*
-
-
-
     DietetiqueManager m = new DietetiqueManager(this); // gestionnaire de la table "Dietetique"
 
     m.open(); // ouverture de la table en lecture/écriture
@@ -146,8 +147,7 @@ import java.io.OutputStream;
         }
     c.close(); // fermeture du curseur
 
-        // fermeture du gestionnaire
-    m.close();
+    m.close(); // fermeture du gestionnaire
 
 */
     } // class MySQLite
