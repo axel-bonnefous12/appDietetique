@@ -44,10 +44,10 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home,container, false);
 
         // ----- creation de repas test (a retirer!) ----- //
-        Plat plat1 = new Plat("patates",11,9,150,100);
-        Plat plat2 = new Plat("merguez",8,9,200,100);
+        Plat plat1 = new Plat(1,"patates",11,9,150,100);
+        Plat plat2 = new Plat(2,"merguez",8,9,200,100);
 
-        Plat plat3 = new Plat("moulaga",20,12,400,100);
+        Plat plat3 = new Plat(3,"moulaga",20,12,400,100);
 
         ArrayList<Plat> listPlatsPetitDej = new ArrayList<>();
         listPlatsPetitDej.add(plat1);

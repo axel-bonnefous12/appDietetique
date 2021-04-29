@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Plat implements Parcelable {
+    private int id;
     private String nom;
     private float proteines;
     private float glucides;
@@ -15,7 +16,8 @@ public class Plat implements Parcelable {
     private int i;
 
     // Constructeur
-    public Plat(String nom, float proteines, float glucides, float calories, float quantite) {
+    public Plat(int id, String nom, float proteines, float glucides, float calories, float quantite) {
+        this.id = id;
         this.nom = nom;
         this.proteines = proteines;
         this.glucides = glucides;
@@ -24,6 +26,8 @@ public class Plat implements Parcelable {
     }
 
     // ----- Getter methods ----- //
+    public int getId() { return id; }
+
     public String getNom() {
         return nom;
     }
@@ -48,6 +52,7 @@ public class Plat implements Parcelable {
 
     // Désérialisation des attributs
     protected Plat(Parcel in) {
+        id = in.readInt();
         nom = in.readString();
         proteines = in.readFloat();
         glucides = in.readFloat();
@@ -59,6 +64,7 @@ public class Plat implements Parcelable {
     // Serialisation des attributs
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(nom);
         dest.writeFloat(proteines);
         dest.writeFloat(glucides);
