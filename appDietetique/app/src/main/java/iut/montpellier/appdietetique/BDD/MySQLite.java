@@ -1,4 +1,4 @@
-package iut.montpellier.appdietetique.BDD;
+/* package iut.montpellier.appdietetique.BDD;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -30,7 +30,7 @@ import java.io.OutputStream;
 
         public static synchronized MySQLite getInstance(MySQLite context) {
 
-            /*if (sInstance == null) { sInstance = new MySQLite(context); } */
+            if (sInstance == null) { sInstance = new MySQLite(context); }
 
             return sInstance;
         }
@@ -128,7 +128,7 @@ import java.io.OutputStream;
 
 
 
-/*
+
     DietetiqueManager m = new DietetiqueManager(this); // gestionnaire de la table "Dietetique"
 
     m.open(); // ouverture de la table en lecture/écriture
@@ -149,6 +149,7 @@ import java.io.OutputStream;
 
     m.close(); // fermeture du gestionnaire
 
-*/
+
     } // class MySQLite
 
+*/
