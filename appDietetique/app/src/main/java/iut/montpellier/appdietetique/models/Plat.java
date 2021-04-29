@@ -48,6 +48,23 @@ public class Plat implements Parcelable {
         return quantite;
     }
 
+    // ----- Setter methods ----- //
+    public void setId(int id) { this.id = id; }
+
+    public void setNom(String nom) { this.nom = nom; }
+
+    public void setProteines(float proteines) {
+        this.proteines = proteines;
+    }
+
+    public void setGlucides(float glucides) {
+        this.glucides = glucides;
+    }
+
+    public void setCalories(float calories) {
+        this.calories = calories;
+    }
+
     // ----- Parcelable interface methods ----- //
 
     // Désérialisation des attributs
