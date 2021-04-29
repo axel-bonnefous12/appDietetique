@@ -1,4 +1,4 @@
-package iut.montpellier.appdietetique.BDD;
+/*package iut.montpellier.appdietetique.BDD;
 
 public class Dietetique {
 
@@ -27,4 +27,4 @@ public class Dietetique {
     public void setAlim_nom_fr(String alim_nom_fr) {
         this.alim_nom_fr = alim_nom_fr;
     }
-} // class Dietetique
+} // class Dietetique */
