@@ -1,4 +1,4 @@
-package iut.montpellier.appdietetique.BDD;
+/*package iut.montpellier.appdietetique.BDD;
 
         import android.content.ContentValues;
         import android.content.Context;
@@ -11,11 +11,11 @@ public class DietetiqueManager {
     private static final String TABLE_NAME = "data.sqlite";
     public static final String KEY_ID_ALIMENT="id";
     public static final String KEY_NOM_ALIMENT="alim_nom_fr";
-/*    public static final String CREATE_TABLE_DIETETIQUE = "CREATE TABLE " + TABLE_NAME +
+    public static final String CREATE_TABLE_DIETETIQUE = "CREATE TABLE " + TABLE_NAME +
             " (" +
             " " + KEY_ID_ALIMENT + " INTEGER primary key," +
             " " + KEY_NOM_ALIMENT + " TEXT" +
-            ");"; */
+            ");";
     private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
     private SQLiteDatabase db;
 
@@ -37,7 +37,7 @@ public class DietetiqueManager {
         db.close();
     }
 
-/*    public long addAnimal(Animal animal) {
+      public long addAnimal(Animal animal) {
         // Ajout d'un enregistrement dans la table
 
         ContentValues values = new ContentValues();
@@ -45,9 +45,9 @@ public class DietetiqueManager {
 
         // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
         return db.insert(TABLE_NAME,null,values);
-    } */
+    }
 
-/*    public int modAnimal(Animal animal) {
+      public int modAnimal(Animal animal) {
         // modification d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la requête
 
@@ -58,9 +58,9 @@ public class DietetiqueManager {
         String[] whereArgs = {animal.getId_animal()+""};
 
         return db.update(TABLE_NAME, values, where, whereArgs);
-    } */
+    }
 
-/*    public int supAnimal(Animal animal) {
+      public int supAnimal(Animal animal) {
         // suppression d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
 
@@ -68,7 +68,7 @@ public class DietetiqueManager {
         String[] whereArgs = {animal.getId_animal()+""};
 
         return db.delete(TABLE_NAME, where, whereArgs);
-    } */
+    }
 
     public Dietetique getDietetique(int id) {
         // Retourne l'aliment dont l'id est passé en paramètre
@@ -94,3 +94,4 @@ public class DietetiqueManager {
 
 
 } // class DietetiqueManager
+*/
