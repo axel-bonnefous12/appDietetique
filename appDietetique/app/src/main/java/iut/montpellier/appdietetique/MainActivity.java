@@ -53,14 +53,5 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
     };
-/*
-    private void recupProfil()
-    {
-        if (controle.getPoids() != null)
-        {
-            txtPoids.setText(cont)
-        }
-    }
-*/
 
 }//end MainActivity
