@@ -48,7 +48,7 @@ public class PlatManager {
     {
         // Retourne le plat dont l'id est passé en paramètre
 
-        Plat p = new Plat(0, "", 0, 0, 0,0);
+        Plat p = new Plat(0, "", 0, 0, 0,100);
         Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+KEY_ID_PLAT+"="+id, null);
         if (c.moveToFirst()) {
             p.setId(c.getInt(c.getColumnIndex(KEY_ID_PLAT)));

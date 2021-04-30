@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Calendar;
@@ -48,7 +50,7 @@ public class HomeFragment extends Fragment {
         PlatManager p = new PlatManager(this.getContext());
         p.open();
 
-        Plat plat1 = p.getPlatId(100);
+        Plat plat1 = p.getPlatId(1);
         p.close();
 
         ArrayList<Plat> listPlatsPetitDej = new ArrayList<>();
@@ -110,6 +112,9 @@ public class HomeFragment extends Fragment {
     }
 
     private void initTextViews(View view, Journee journee) {
+
+        textView_titreDateDuJour = view.findViewById(R.id.date_du_jour);
+        textView_titreDateDuJour.setText("" + new SimpleDateFormat("EEEE d MMMM").format(journee.getDate()));
 
         textView_totalProteines = view.findViewById(R.id.valeur_proteines);
         textView_totalProteines.setText("" + journee.getTotalProteines());

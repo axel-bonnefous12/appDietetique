@@ -49,7 +49,7 @@ public class PlatItemAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) // attribuer le plat au textView
     {
 
-        view = inflater.inflate(R.layout.item_list_plat, null);
+        view = inflater.inflate(R.layout.item_list_plat, null); // association du layout item_list_plat avec la view
 
         // recuperation des informations par rapport au plat
         Plat currentPlat = getItem(i);
