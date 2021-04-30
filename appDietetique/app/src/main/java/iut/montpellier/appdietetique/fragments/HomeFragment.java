@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
         PlatManager p = new PlatManager(this.getContext());
         p.open();
 
-        Plat plat1 = p.getPlat(1);
+        Plat plat1 = p.getPlatId(100);
         p.close();
 
         ArrayList<Plat> listPlatsPetitDej = new ArrayList<>();

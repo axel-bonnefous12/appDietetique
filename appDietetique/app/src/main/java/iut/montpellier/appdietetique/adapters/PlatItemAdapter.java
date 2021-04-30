@@ -28,22 +28,26 @@ public class PlatItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {
+    public int getCount() // Nombre d'élément dans la liste
+    {
         return platList.size();
     }
 
     @Override
-    public Plat getItem(int i) {
+    public Plat getItem(int i) // Nom de l'utilisateur pour un certain item
+    {
         return platList.get(i);
     }
 
     @Override
-    public long getItemId(int i) {
+    public long getItemId(int i)
+    {
         return 0;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) // attribuer le plat au textView
+    {
 
         view = inflater.inflate(R.layout.item_list_plat, null);
 

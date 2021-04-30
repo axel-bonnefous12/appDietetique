@@ -35,17 +35,9 @@
     <string name="repas_calories">@string/home_page_calories</string>
 
 
+
     <!-- fragment_search -->
-    <string name="Num">Num</string>
-    <string name="nom">nom</string>
-    <string name="prenom">prenom</string>
-    <string name="ajouter">ajouter</string>
-    <string name="supprimer">supprimer</string>
-    <string name="afficher">afficher</string>
-    <string name="affichertout">affichertout</string>
-    <string name="suivant">suivant</string>
-    <string name="precedent">precedent</string>
-    <string name="premier">premier</string>
+
 
 
 </resources>
