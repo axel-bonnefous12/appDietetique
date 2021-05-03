@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Calendar;
 
+import iut.montpellier.appdietetique.BDD.DbUserManager;
 import iut.montpellier.appdietetique.BDD.PlatManager;
 import iut.montpellier.appdietetique.R;
 import iut.montpellier.appdietetique.models.Collation;
@@ -29,6 +30,8 @@ import iut.montpellier.appdietetique.models.Plat;
 import iut.montpellier.appdietetique.models.Repas;
 
 public class HomeFragment extends Fragment {
+
+    DbUserManager userDb;
 
     Button boutonPetitDej;
     Button boutonCollation;
@@ -47,20 +50,20 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home,container, false);
 
         // ----- creation de repas test (a retirer!) ----- //
-        PlatManager p = new PlatManager(this.getContext());
-        p.open();
 
-        Plat plat1 = p.getPlatId(1);
-        p.close();
+        userDb = new DbUserManager(this.getContext()); //ouvre la bdd de l'utilisateur
+        //userDb.insertPlat("PetitDejeuner", Calendar.getInstance().getTime(), 1, 100); //ajouter plat à la bdd de l'utilisateur
+        ArrayList<Plat> listPlatsPetitDej = userDb.findPlat("PetitDejeuner", Calendar.getInstance().getTime()); //
+        ArrayList<Plat> listPlatsDejeuner = userDb.findPlat("Dejeuner", Calendar.getInstance().getTime()); //
+        userDb.close();
 
-        ArrayList<Plat> listPlatsPetitDej = new ArrayList<>();
-        listPlatsPetitDej.add(plat1);
+        //ArrayList<Plat> listPlatsPetitDej = new ArrayList<>();
+        //listPlatsPetitDej.add(plat1);
 
-        ArrayList<Plat> listPlatsCollation = new ArrayList<>();
 
         PetitDejeuner petitDejeuner = new PetitDejeuner(listPlatsPetitDej);
-        Collation collation = new Collation(listPlatsCollation);
-        Dejeuner dejeuner = new Dejeuner(new ArrayList<>());
+        Collation collation = new Collation(new ArrayList<>());
+        Dejeuner dejeuner = new Dejeuner(listPlatsDejeuner);
         Diner diner = new Diner(new ArrayList<>());
 
         Journee journee = new Journee(Calendar.getInstance().getTime(),petitDejeuner,collation,dejeuner,diner);

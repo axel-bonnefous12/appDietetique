@@ -65,6 +65,10 @@ public class Plat implements Parcelable {
         this.calories = calories;
     }
 
+    public void setQuantite(float quantite) {
+        this.quantite = quantite;
+    }
+
     // ----- Parcelable interface methods ----- //
 
     // Désérialisation des attributs
