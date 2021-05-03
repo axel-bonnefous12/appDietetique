@@ -45,10 +45,15 @@ public abstract class Repas implements Parcelable {
         totalCalories = 0;
 
         for (Plat plat: plats) {
-            totalProteines = totalProteines + plat.getProteines();
-            totalGlucides = totalGlucides + plat.getGlucides();
-            totalCalories = totalCalories + plat.getCalories();
+            float quantite = plat.getQuantite();
+            totalProteines = totalProteines + produitEnCroix(plat.getProteines(),quantite);
+            totalGlucides = totalGlucides + produitEnCroix(plat.getGlucides(),quantite);
+            totalCalories = totalCalories + produitEnCroix(plat.getCalories(),quantite);
         }
+    }
+
+    public float produitEnCroix(float apport, float quantite){
+        return quantite * apport / 100;
     }
 
 
@@ -76,6 +81,7 @@ public abstract class Repas implements Parcelable {
     public void setPlats(ArrayList<Plat> plats) {
         this.plats = plats;
     }
+
 
     // ----- Parcelable interface methods ----- //
 

@@ -3,6 +3,7 @@ package iut.montpellier.appdietetique.BDD;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
@@ -110,11 +111,15 @@ public class DbUserManager extends SQLiteOpenHelper {
     public void insertPlat(String nomTable, Date date, int idPlat, float quantite){
         String dateFormate = "" + new SimpleDateFormat("EEEE d MMMM").format(date); //Met la date de la journée dans le format ex:"Dimanche 2 Mai"
 
-        //execute la requette dans la table
-        this.getWritableDatabase().execSQL(
-            "INSERT INTO " + nomTable + "(" + "'" + KEY_DATE + "'" + "," + KEY_ID_PLAT + "," + "'" +KEY_NB_QUANTITE + "'" + ")"+
-            " VALUES" + "(" + "'" + dateFormate + "'" + "," + idPlat + "," + "'" + quantite + "'" + ");"
-        );
+        try {
+            //execute la requette dans la table
+            this.getWritableDatabase().execSQL(
+                    "INSERT INTO " + nomTable + "(" + "'" + KEY_DATE + "'" + "," + KEY_ID_PLAT + "," + "'" + KEY_NB_QUANTITE + "'" + ")" +
+                            " VALUES" + "(" + "'" + dateFormate + "'" + "," + idPlat + "," + "'" + quantite + "'" + ");"
+            );
+        } catch (SQLiteException e) {
+            // le tuple existe deja
+        }
 
         Log.i( "DATABASE", "insertPlat invoked"); // Affichage de debugage dans les logs
     }
@@ -145,7 +150,6 @@ public class DbUserManager extends SQLiteOpenHelper {
         
         // Boucle qui ajoute chaque plat en resultat de la requette à la liste
         while ( !cursor.isAfterLast()) {
-            System.out.println("test");
             Plat p = platManager.getPlatId(cursor.getInt(1));
             p.setQuantite(cursor.getInt(2));
             listPlat.add(p);

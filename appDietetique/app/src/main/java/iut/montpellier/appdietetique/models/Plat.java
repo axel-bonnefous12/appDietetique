@@ -6,9 +6,9 @@ import android.os.Parcelable;
 public class Plat implements Parcelable {
     private int id;
     private String nom;
-    private float proteines;
-    private float glucides;
-    private float calories;
+    private float proteines; //Pour 100g
+    private float glucides; //Pour 100g
+    private float calories; //Pour 100g
     private float quantite;
 
     // Attribut for parcelable interface
