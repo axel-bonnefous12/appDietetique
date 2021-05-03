@@ -25,7 +25,9 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
+
       <connection connection-id="5a826d1f-c797-4f2c-9498-80cdf9f30aee">
+
         <schema name="main" object-types="table, view" />
       </connection>
     </loaded-nodes>
@@ -35,7 +37,7 @@
       <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="5a826d1f-c797-4f2c-9498-80cdf9f30aee">
-      <console name="Connection 1" type="STANDARD" schema="main" session="Main" />
+      <console name="Connection 1" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
