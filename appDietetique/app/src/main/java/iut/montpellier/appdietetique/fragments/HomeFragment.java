@@ -52,9 +52,11 @@ public class HomeFragment extends Fragment {
         // ----- creation de repas test (a retirer!) ----- //
 
         userDb = new DbUserManager(this.getContext()); //ouvre la bdd de l'utilisateur
-        //userDb.insertPlat("PetitDejeuner", Calendar.getInstance().getTime(), 1, 100); //ajouter plat à la bdd de l'utilisateur
+        //userDb.insertPlat("Dejeuner", Calendar.getInstance().getTime(), 1, 50); //ajouter plat à la bdd de l'utilisateur
         ArrayList<Plat> listPlatsPetitDej = userDb.findPlat("PetitDejeuner", Calendar.getInstance().getTime()); //
         ArrayList<Plat> listPlatsDejeuner = userDb.findPlat("Dejeuner", Calendar.getInstance().getTime()); //
+        ArrayList<Plat> listPlatsCollation = userDb.findPlat("Collation", Calendar.getInstance().getTime()); //
+        ArrayList<Plat> listPlatsDiner = userDb.findPlat("Diner", Calendar.getInstance().getTime()); //
         userDb.close();
 
         //ArrayList<Plat> listPlatsPetitDej = new ArrayList<>();
@@ -62,9 +64,9 @@ public class HomeFragment extends Fragment {
 
 
         PetitDejeuner petitDejeuner = new PetitDejeuner(listPlatsPetitDej);
-        Collation collation = new Collation(new ArrayList<>());
+        Collation collation = new Collation(listPlatsCollation);
         Dejeuner dejeuner = new Dejeuner(listPlatsDejeuner);
-        Diner diner = new Diner(new ArrayList<>());
+        Diner diner = new Diner(listPlatsDiner);
 
         Journee journee = new Journee(Calendar.getInstance().getTime(),petitDejeuner,collation,dejeuner,diner);
 
