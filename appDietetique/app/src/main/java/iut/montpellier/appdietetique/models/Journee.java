@@ -2,6 +2,8 @@ package iut.montpellier.appdietetique.models;
 
 import java.util.Date;
 
+import iut.montpellier.appdietetique.BDD.DbUserManager;
+
 public class Journee {
     private Date date;
     private float totalProteines;
@@ -13,6 +15,18 @@ public class Journee {
     private Diner diner;
 
     // ----- Constructeurs ----- //
+    public Journee(Date date, DbUserManager dbUserManager){
+        this.date = date;
+        this.petitDejeuner = new PetitDejeuner();
+        this.collation = new Collation();
+        this.dejeuner = new Dejeuner();
+        this.diner = new Diner();
+
+        updateRepasWithBdd(dbUserManager);
+
+        calculerTotaux();
+    }
+
     public Journee(Date date, float totalProteines, float totalGlucides, float totalCalories, PetitDejeuner petitDejeuner, Collation collation, Dejeuner dejeuner, Diner diner) {
         this.date = date;
         this.totalProteines = totalProteines;
@@ -49,6 +63,13 @@ public class Journee {
         this.totalProteines = petitDejeuner.getTotalProteines() + collation.getTotalProteines() + dejeuner.getTotalProteines() + diner.getTotalProteines();
         this.totalGlucides = petitDejeuner.getTotalGlucides() + collation.getTotalGlucides() + dejeuner.getTotalGlucides() + diner.getTotalGlucides();
         this.totalCalories = petitDejeuner.getTotalCalories() + collation.getTotalCalories() + dejeuner.getTotalCalories() + diner.getTotalCalories();
+    }
+
+    public void updateRepasWithBdd(DbUserManager dbUserManager){
+        this.petitDejeuner.updatePlatsWithBdd(dbUserManager, date);
+        this.collation.updatePlatsWithBdd(dbUserManager, date);
+        this.dejeuner.updatePlatsWithBdd(dbUserManager, date);
+        this.diner.updatePlatsWithBdd(dbUserManager, date);
     }
 
     // ----- Getter methods ----- //

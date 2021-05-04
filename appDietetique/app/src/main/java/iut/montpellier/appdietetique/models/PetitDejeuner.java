@@ -4,22 +4,40 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+import iut.montpellier.appdietetique.BDD.DbUserManager;
 
 public class PetitDejeuner extends Repas{
 
+    private static final String NOM_TYPE_REPAS = "Petit déjeuner";
+    private static final String NOM_TABLE_REPAS = "PetitDejeuner";
+
     // ----- Constructeurs ----- //
     public PetitDejeuner(float totalProteines, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
-        super("Petit déjeuner", totalProteines, totalGlucides, totalCalories, plats);
+        super(NOM_TYPE_REPAS, totalProteines, totalGlucides, totalCalories, plats);
     }
 
     public PetitDejeuner(ArrayList<Plat> plats){
-        super("Petit déjeuner", plats);
+        super(NOM_TYPE_REPAS, plats);
     }
 
     public PetitDejeuner(){
-        super("Petit déjeuner");
+        super(NOM_TYPE_REPAS);
     }
 
+    // ----- Utils Methods ----- //
+    public ArrayList<Plat> getUserBddRepasPlats(DbUserManager dbUserManager, Date date) {
+        return super.getUserBddRepasPlats(dbUserManager, date, NOM_TABLE_REPAS);
+    }
+
+    public void updatePlatsWithBdd(DbUserManager dbUserManager, Date date){
+        setPlats(getUserBddRepasPlats(dbUserManager,date));
+    }
+
+    public void addPlat(DbUserManager dbUserManager, Date date, Plat plat){
+        super.addPlat(dbUserManager, NOM_TABLE_REPAS, date, plat);
+    }
 
     // ----- Parcelable interface methods ----- //
     // Désérialisation des attributs

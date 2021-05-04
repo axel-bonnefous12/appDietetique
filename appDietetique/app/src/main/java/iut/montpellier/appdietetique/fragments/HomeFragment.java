@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Calendar;
 
@@ -51,38 +52,25 @@ public class HomeFragment extends Fragment {
 
         // ----- creation de repas test (a retirer!) ----- //
 
-        userDb = new DbUserManager(this.getContext()); //ouvre la bdd de l'utilisateur
         //userDb.insertPlat("Dejeuner", Calendar.getInstance().getTime(), 1, 50); //ajouter plat à la bdd de l'utilisateur
-        ArrayList<Plat> listPlatsPetitDej = userDb.findPlat("PetitDejeuner", Calendar.getInstance().getTime()); //
-        ArrayList<Plat> listPlatsDejeuner = userDb.findPlat("Dejeuner", Calendar.getInstance().getTime()); //
-        ArrayList<Plat> listPlatsCollation = userDb.findPlat("Collation", Calendar.getInstance().getTime()); //
-        ArrayList<Plat> listPlatsDiner = userDb.findPlat("Diner", Calendar.getInstance().getTime()); //
+
+        userDb = new DbUserManager(this.getContext());
+        Journee journee = new Journee(Calendar.getInstance().getTime(),userDb);
         userDb.close();
-
-        //ArrayList<Plat> listPlatsPetitDej = new ArrayList<>();
-        //listPlatsPetitDej.add(plat1);
-
-
-        PetitDejeuner petitDejeuner = new PetitDejeuner(listPlatsPetitDej);
-        Collation collation = new Collation(listPlatsCollation);
-        Dejeuner dejeuner = new Dejeuner(listPlatsDejeuner);
-        Diner diner = new Diner(listPlatsDiner);
-
-        Journee journee = new Journee(Calendar.getInstance().getTime(),petitDejeuner,collation,dejeuner,diner);
 
         // ----- ----- //
 
         //initialisation du bouton petit dej
-        boutonPetitDej = initBoutonsRepas(view, R.id.button_petit_dej, journee.getPetitDejeuner());
+        boutonPetitDej = initBoutonsRepas(view, R.id.button_petit_dej, journee.getDate(), "PetitDejeuner");
 
         //initialisation du bouton collation
-        boutonCollation = initBoutonsRepas(view, R.id.button_collation, journee.getCollation());
+        boutonCollation = initBoutonsRepas(view, R.id.button_collation, journee.getDate(), "Collation");
 
         //initialisation du bouton dejeuner
-        boutonDejeuner = initBoutonsRepas(view, R.id.button_dejeuner, journee.getDejeuner());
+        boutonDejeuner = initBoutonsRepas(view, R.id.button_dejeuner, journee.getDate(), "Dejeuner");
 
         //initialisation du bouton diner
-        boutonDiner = initBoutonsRepas(view, R.id.button_diner, journee.getDiner());
+        boutonDiner = initBoutonsRepas(view, R.id.button_diner, journee.getDate(), "Diner");
 
         initTextViews(view, journee);
 
@@ -93,10 +81,10 @@ public class HomeFragment extends Fragment {
     /**
      * @param view view de la page fragment_home
      * @param idBouton id du bouton au quelle on veut associer l'action
-     * @param repas repas que l'ont veut afficher sur la page repas (PetitDejeuner, Collation, Dejeuner ou Diner)
+     * @param date
      * @return un bouton qui change le fragment actuel par le fragment repas, avec les données du repas passé en parametre
      */
-    private Button initBoutonsRepas(View view, int idBouton, Repas repas){
+    private Button initBoutonsRepas(View view, int idBouton, Date date, String typeRepas){
         //Récupération du bouton sur la view
         Button bouton = view.findViewById(idBouton);
 
@@ -104,7 +92,8 @@ public class HomeFragment extends Fragment {
         bouton.setOnClickListener(v -> {
             // Création du bundle d'un bundle de données avec l'objet que l'on veut passé en argument du fragment repas
             Bundle bundle = new Bundle();
-            bundle.putParcelable("data", repas);
+            bundle.putString("typeRepas", typeRepas);
+            bundle.putLong("date", date.getTime());
 
             // Initialisation de la transaction de fragment
             FragmentTransaction fragmentTransaction = Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction();

@@ -17,25 +17,34 @@
       <scope value="GLOBAL" />
       <destination value="FILE" />
       <format value="EXCEL" />
-      <charset value="windows-1252" />
+      <charset value="UTF-8" />
     </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="448f8545-3555-4a1a-8774-ca6f7eee7c37">
+        <schema name="main" object-types="constraint, column, table, view, dataset trigger, index" />
+      </connection>
+      <connection connection-id="5a826d1f-c797-4f2c-9498-80cdf9f30aee">
+        <schema name="main" object-types="table, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="448f8545-3555-4a1a-8774-ca6f7eee7c37">
       <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="5a826d1f-c797-4f2c-9498-80cdf9f30aee">
-      <console name="Connection 1" type="STANDARD" schema="" session="Main" />
+      <console name="Connection 1" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="448f8545-3555-4a1a-8774-ca6f7eee7c37" object-ref="schemas/main/tables/Plats" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="448f8545-3555-4a1a-8774-ca6f7eee7c37" />
