@@ -10,22 +10,25 @@ import iut.montpellier.appdietetique.BDD.DbUserManager;
 
 public class Collation extends Repas{
 
+    private static final String NOM_TYPE_REPAS = "Collation";
+    private static final String NOM_TABLE_REPAS = "Collation";
+
     // ----- Constructeurs ----- //
     public Collation(float totalProteines, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
-        super("Collation", totalProteines, totalGlucides, totalCalories, plats);
+        super(NOM_TYPE_REPAS, totalProteines, totalGlucides, totalCalories, plats);
     }
 
     public Collation(ArrayList<Plat> plats){
-        super("Collation", plats);
+        super(NOM_TYPE_REPAS, plats);
     }
 
     public Collation(){
-        super("Collation");
+        super(NOM_TYPE_REPAS);
     }
 
     // ----- Utils Methods ----- //
     public ArrayList<Plat> getUserBddRepasPlats(DbUserManager dbUserManager, Date date) {
-        return super.getUserBddRepasPlats(dbUserManager, date, "Collation");
+        return super.getUserBddRepasPlats(dbUserManager, date, NOM_TABLE_REPAS);
     }
 
     public void updatePlatsWithBdd(DbUserManager dbUserManager, Date date){
@@ -33,7 +36,7 @@ public class Collation extends Repas{
     }
 
     public void addPlat(DbUserManager dbUserManager, Date date, Plat plat){
-        super.addPlat(dbUserManager, "Collation", date, plat);
+        super.addPlat(dbUserManager, NOM_TABLE_REPAS, date, plat);
     }
 
     // ----- Parcelable interface methods ----- //
