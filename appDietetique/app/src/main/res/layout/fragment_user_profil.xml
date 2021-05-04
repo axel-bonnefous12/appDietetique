@@ -142,6 +142,7 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/btn_modif_profil"
         android:layout_width="151dp"
         android:layout_height="61dp"
         android:layout_marginTop="4dp"
