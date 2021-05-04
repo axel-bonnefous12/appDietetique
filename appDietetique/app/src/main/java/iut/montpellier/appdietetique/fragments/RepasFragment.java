@@ -64,18 +64,22 @@ public class RepasFragment extends Fragment {
             case "PetitDejeuner":
                 initTextViews(journee.getPetitDejeuner()); // Initialise les text view avec les veleurs du repas
                 initListView(journee.getPetitDejeuner());
+                initAddButton(journee.getPetitDejeuner());
                 break;
             case "Collation":
                 initTextViews(journee.getCollation()); // Initialise les text view avec les veleurs du repas
                 initListView(journee.getCollation());
+                initAddButton(journee.getCollation());
                 break;
             case "Dejeuner":
                 initTextViews(journee.getDejeuner()); // Initialise les text view avec les veleurs du repas
                 initListView(journee.getDejeuner());
+                initAddButton(journee.getDejeuner());
                 break;
             case "Diner":
                 initTextViews(journee.getDiner()); // Initialise les text view avec les veleurs du repas
                 initListView(journee.getDiner());
+                initAddButton(journee.getDiner());
                 break;
             default:
                 break;
@@ -106,6 +110,9 @@ public class RepasFragment extends Fragment {
         textView_totalCalories = view.findViewById(R.id.valeur_calories);
         textView_totalCalories.setText("" + repas.getTotalCalories());
 
+    }
+
+    private void initAddButton(Repas repas){
         EditText editTextID = view.findViewById(R.id.edit_text_id);
         EditText editTextQuantite = view.findViewById(R.id.edit_text_quantite);
         Button buttonAddPlat = view.findViewById(R.id.button_add_plat);
@@ -121,6 +128,7 @@ public class RepasFragment extends Fragment {
                 repas.addPlat(dbUserManager,typeRepas,journee.getDate(),plat);
 
                 actualiserPlatListView(); //
+                initTextViews(repas);
             }
         });
     }

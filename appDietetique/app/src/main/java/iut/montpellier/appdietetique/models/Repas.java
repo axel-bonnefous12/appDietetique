@@ -65,6 +65,7 @@ public abstract class Repas implements Parcelable {
 
     public void addPlat(DbUserManager dbUserManager, String nomTable, Date date, Plat plat){
         plats.add(plat);
+        updateTotaux();
         dbUserManager.insertPlat(nomTable, date, plat.getId(), plat.getQuantite());
     }
 
