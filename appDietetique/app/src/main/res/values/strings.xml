@@ -33,7 +33,18 @@
     <string name="repas_graisses">@string/home_page_graisses</string>
     <string name="repas_glucides">@string/home_page_glucides</string>
     <string name="repas_calories">@string/home_page_calories</string>
-
+    <string name="_88">88</string>
+    <string name="age">Age:</string>
+    <string name="jean">jean</string>
+    <string name="prenom">Prenom:</string>
+    <string name="ans">ans</string>
+    <string name="poids">Poids:</string>
+    <string name="kg">kg</string>
+    <string name="sexe">Sexe:</string>
+    <string name="homme">Homme</string>
+    <string name="modifier_informations">modifier informations</string>
+    <string name="mon_profil">Mon profil</string>
+    <string name="nom">Nom:</string>
 
 
     <!-- fragment_search -->
