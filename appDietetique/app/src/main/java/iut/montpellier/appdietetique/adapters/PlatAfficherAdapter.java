@@ -61,7 +61,6 @@ public class PlatAfficherAdapter extends BaseAdapter {
         TextView nomDuPlatView = convertView.findViewById(R.id.text_nom_du_plat_afficher);
         nomDuPlatView.setText(nomDuPlat);
 
-
         return convertView;
     }
 }
