@@ -4,6 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+import iut.montpellier.appdietetique.BDD.DbUserManager;
 
 public class Dejeuner extends Repas{
 
@@ -20,6 +23,18 @@ public class Dejeuner extends Repas{
         super("Déjeuner");
     }
 
+    // ----- Utils Methods ----- //
+    public ArrayList<Plat> getUserBddRepasPlats(DbUserManager dbUserManager, Date date) {
+        return super.getUserBddRepasPlats(dbUserManager, date, "Dejeuner");
+    }
+
+    public void updatePlatsWithBdd(DbUserManager dbUserManager, Date date){
+        setPlats(getUserBddRepasPlats(dbUserManager,date));
+    }
+
+    public void addPlat(DbUserManager dbUserManager, Date date, Plat plat){
+        super.addPlat(dbUserManager, "Dejeuner", date, plat);
+    }
 
     // ----- Parcelable interface methods ----- //
     // Désérialisation des attributs

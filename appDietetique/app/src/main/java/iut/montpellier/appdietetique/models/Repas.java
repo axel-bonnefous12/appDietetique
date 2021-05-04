@@ -3,9 +3,11 @@ package iut.montpellier.appdietetique.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Date;
+
+import iut.montpellier.appdietetique.BDD.DbUserManager;
+import iut.montpellier.appdietetique.BDD.PlatManager;
 
 public abstract class Repas implements Parcelable {
     private String typeDuRepas;
@@ -26,7 +28,7 @@ public abstract class Repas implements Parcelable {
     public Repas(String typeDuRepas, ArrayList<Plat> plats){
         this.typeDuRepas = typeDuRepas;
         this.plats = plats;
-        calculerTotaux();
+        updateTotaux();
     }
 
     public Repas(String typeDuRepas){
@@ -35,11 +37,12 @@ public abstract class Repas implements Parcelable {
         this.totalGlucides = 0;
         this.totalCalories = 0;
         this.plats = new ArrayList<>();
+        updateTotaux();
     }
 
 
     // ----- Utils methods ----- //
-    public void calculerTotaux(){
+    public void updateTotaux(){
         totalProteines = 0;
         totalGlucides = 0;
         totalCalories = 0;
@@ -54,6 +57,15 @@ public abstract class Repas implements Parcelable {
 
     public float produitEnCroix(float apport, float quantite){
         return quantite * apport / 100;
+    }
+
+    public ArrayList<Plat> getUserBddRepasPlats(DbUserManager dbUserManager, Date date, String nomTableRepas){
+        return dbUserManager.findPlat(nomTableRepas, date);
+    }
+
+    public void addPlat(DbUserManager dbUserManager, String nomTable, Date date, Plat plat){
+        plats.add(plat);
+        dbUserManager.insertPlat(nomTable, date, plat.getId(), plat.getQuantite());
     }
 
 
@@ -80,6 +92,7 @@ public abstract class Repas implements Parcelable {
 
     public void setPlats(ArrayList<Plat> plats) {
         this.plats = plats;
+        updateTotaux();
     }
 
 
@@ -90,6 +103,7 @@ public abstract class Repas implements Parcelable {
         plats = new ArrayList<Plat>();
         readFromParcel(in);
     }
+
 
     // description des objets de types complexes
     @Override
