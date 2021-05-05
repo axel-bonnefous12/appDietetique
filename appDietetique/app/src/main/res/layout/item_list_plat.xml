@@ -8,7 +8,7 @@
         android:padding="10dp"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/text_nom_du_plat_afficher"
+            android:id="@+id/text_afficher_plat"
             android:layout_weight="0.5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

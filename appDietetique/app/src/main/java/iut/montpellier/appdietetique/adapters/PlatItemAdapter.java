@@ -57,7 +57,7 @@ public class PlatItemAdapter extends BaseAdapter {
         Float poidsDuPlat = currentPlat.getQuantite();
 
         // mise à jour de la TextView du nom du plat
-        TextView nomDuPlatView = view.findViewById(R.id.text_nom_du_plat_afficher);
+        TextView nomDuPlatView = view.findViewById(R.id.text_afficher_plat);
         nomDuPlatView.setText(nomDuPlat);
 
         // mise à jour de la TextView du poids du plat

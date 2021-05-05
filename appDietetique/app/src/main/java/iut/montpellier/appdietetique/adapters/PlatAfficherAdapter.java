@@ -49,16 +49,16 @@ public class PlatAfficherAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) // attribuer le plat au textView
     {
 
-        convertView = inflater.inflate(R.layout.line_afficher, null); // association du layout item_list_plat_afficher avec la view
+        convertView = inflater.inflate(R.layout.item_afficher_plat, null); // association du layout item_list_plat_afficher avec la view
 
-        TextView affichage_text_view = convertView.findViewById(R.id.affichage_text_view);
+        TextView affichage_text_view = convertView.findViewById(R.id.text_afficher_plat);
         // recuperation des informations par rapport au plat
         Plat currentPlat = getItem(position);
         String nomDuPlat = currentPlat.getNom();
         Float poidsDuPlat = currentPlat.getQuantite();
 
         // mise à jour de la TextView du nom du plat
-        TextView nomDuPlatView = convertView.findViewById(R.id.text_nom_du_plat_afficher);
+        TextView nomDuPlatView = convertView.findViewById(R.id.text_afficher_plat);
         nomDuPlatView.setText(nomDuPlat);
 
         return convertView;
