@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 import iut.montpellier.appdietetique.models.Plat;
 
 
@@ -62,21 +64,20 @@ public class PlatManager {
         return p;
     }
 
-    public Plat getPlatNom(String nom_Plat)
+    public ArrayList<Plat> getPlatNom(String nom_Plat)
     {
-        // Retourne le plat dont le nom est passé en paramètre
+        ArrayList<Plat> plats = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT * FROM Plats WHERE nom_plat LIKE '%" + nom_Plat + "%'", null);
+        c.moveToFirst();
+        while (!c.isAfterLast())
+        {
+            Plat plat = new Plat(c.getInt(0),c.getString(1), c.getFloat(2), c.getFloat(3), c.getFloat(4), 100);
+            plats.add(plat);
+            c.moveToNext();
 
-        Plat p = new Plat(0, "", 0, 0, 0,0);
-        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+KEY_NOM_PLAT+"="+nom_Plat, null);
-        if (c.moveToFirst()) {
-            p.setId(c.getInt(c.getColumnIndex(KEY_ID_PLAT)));
-            p.setNom(c.getString(c.getColumnIndex(KEY_NOM_PLAT)));
-            p.setProteines(c.getFloat(c.getColumnIndex(KEY_NB_PROTEINES)));
-            p.setGlucides(c.getFloat(c.getColumnIndex(KEY_NB_PROTEINES)));
-            p.setCalories(c.getFloat(c.getColumnIndex(KEY_NB_CALORIES)));
-            c.close();
         }
+        c.close();
 
-        return p;
+        return plats;
     }
 }

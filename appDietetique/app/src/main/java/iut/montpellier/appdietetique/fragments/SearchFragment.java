@@ -53,7 +53,7 @@ public class SearchFragment extends Fragment
 
     private void initListViews(View view, MySQLite affichageDb)
     {
-        listView_affichageBDD = view.findViewById(R.id.affichageBDD);
+        listView_affichageBDD = view.findViewById(R.id.liste_de_plat);
         ArrayList<String> listPlat = affichageDb.findPlat("Plats");
         //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this.getContext(), );
         //listView_affichageBDD.setAdapter(listPlat);

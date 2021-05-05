@@ -15,13 +15,13 @@ import iut.montpellier.appdietetique.models.Plat;
 /**
  * Class permettant d'adapter les plats dans la listView du fragment ReapasFragment
  */
-public class PlatItemAdapter extends BaseAdapter {
+public class PlatAfficherAdapter extends BaseAdapter {
 
     private Context context;
     private List<Plat> platList;
     private LayoutInflater inflater;
 
-    public PlatItemAdapter(Context context, List<Plat> platList){
+    public PlatAfficherAdapter(Context context, List<Plat> platList){
         this.context = context;
         this.platList = platList;
         this.inflater = LayoutInflater.from(context);
@@ -34,36 +34,33 @@ public class PlatItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public Plat getItem(int i) // Nom de l'utilisateur pour un certain item
+    public Plat getItem(int position) // Nom de l'utilisateur pour un certain item
     {
-        return platList.get(i);
+        return platList.get(position);
     }
 
     @Override
-    public long getItemId(int i)
+    public long getItemId(int position) // la position de l'item
     {
-        return 0;
+        return position;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) // attribuer le plat au textView
+    public View getView(int position, View convertView, ViewGroup parent) // attribuer le plat au textView
     {
 
-        view = inflater.inflate(R.layout.item_list_plat, null); // association du layout item_list_plat avec la view
+        convertView = inflater.inflate(R.layout.line_afficher, null); // association du layout item_list_plat_afficher avec la view
 
+        TextView affichage_text_view = convertView.findViewById(R.id.affichage_text_view);
         // recuperation des informations par rapport au plat
-        Plat currentPlat = getItem(i);
+        Plat currentPlat = getItem(position);
         String nomDuPlat = currentPlat.getNom();
         Float poidsDuPlat = currentPlat.getQuantite();
 
         // mise à jour de la TextView du nom du plat
-        TextView nomDuPlatView = view.findViewById(R.id.text_nom_du_plat_afficher);
+        TextView nomDuPlatView = convertView.findViewById(R.id.text_nom_du_plat_afficher);
         nomDuPlatView.setText(nomDuPlat);
 
-        // mise à jour de la TextView du poids du plat
-        TextView PoidsDuPlatView = view.findViewById(R.id.text_value_poids);
-        PoidsDuPlatView.setText("" + poidsDuPlat + "g");
-
-        return view;
+        return convertView;
     }
 }
