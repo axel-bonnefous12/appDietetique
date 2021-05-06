@@ -24,11 +24,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="448f8545-3555-4a1a-8774-ca6f7eee7c37">
-        <schema name="main" object-types="table, view, dataset trigger, index, column, constraint" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="448f8545-3555-4a1a-8774-ca6f7eee7c37">
@@ -55,9 +51,7 @@
     <filter-actions connection-id="448f8545-3555-4a1a-8774-ca6f7eee7c37" dataset="main.Plats" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
-    <last-used-providers>
-      <object-type object-type="TABLE" editor-provider="DATA" />
-    </last-used-providers>
+    <last-used-providers />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
