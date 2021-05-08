@@ -4,7 +4,8 @@
     android:stretchColumns="0"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+   >
 
     <EditText
         android:id="@+id/edit_text_search_id"
@@ -17,7 +18,9 @@
         android:drawableLeft="@drawable/ic_food_bank_"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:hint="Entrez un plat"
+        />
 
     <ListView
         android:id="@+id/affichageBDD"
@@ -28,6 +31,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"
         android:layout_gravity="center"
+
 
 
 
