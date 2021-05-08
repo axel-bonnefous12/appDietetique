@@ -31,6 +31,8 @@ public class RepasFragment extends Fragment {
     View view;
 
     ImageView backButton;
+    Button goToAddPlatSearchButton;
+
     ListView listPlats;
     TextView textView_titre;
     TextView textView_totalProteines;
@@ -88,6 +90,7 @@ public class RepasFragment extends Fragment {
 
         // associer a l'image back arrow l'action de retourner a la journee
         initBackButton();
+        initgoToAddPlatSearchButton();
 
         return view;
     }
@@ -148,6 +151,25 @@ public class RepasFragment extends Fragment {
             fragmentTransaction.commit();
         });
     }
+
+    private void initgoToAddPlatSearchButton() {
+       goToAddPlatSearchButton = view.findViewById(R.id.button_add_plat_search);
+       goToAddPlatSearchButton.setClickable(true);
+       goToAddPlatSearchButton.setOnClickListener(view1 -> {
+
+           Bundle bundle = new Bundle();
+           bundle.putString("typeRepas", typeRepas);
+           bundle.putLong("date", journee.getDate().getTime());
+
+           AddRepasSearchFragment addRepasSearchFragment = new AddRepasSearchFragment();
+           addRepasSearchFragment.setArguments(bundle);
+
+           FragmentTransaction fragmentTransaction = Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction();
+           fragmentTransaction.replace(R.id.fragment_container, addRepasSearchFragment);
+           fragmentTransaction.commit();
+       });
+    }
+
 
     private void actualiserPlatListView(){
         listPlats.invalidateViews();
