@@ -1,6 +1,7 @@
 package iut.montpellier.appdietetique.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,17 @@ public class PlatAfficherAdapter extends BaseAdapter {
         // mise à jour de la TextView du nom du plat
         TextView nomDuPlatView = convertView.findViewById(R.id.text_afficher_plat);
         nomDuPlatView.setText(nomDuPlat);
+
+        if(position % 2 == 0)
+        {
+            convertView.setBackgroundColor(Color.rgb(155, 167, 71)); // Vert foncé
+            //Log.i("color 1", "color 1");
+        }
+        else
+        {
+            convertView.setBackgroundColor(Color.rgb(181, 198, 60)); // Vert clair
+            //Log.i("color 2","color 2");
+        }
 
         return convertView;
     }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">appDietetique</string>
+    <string name="app_name">BeDiet</string>
     <string name="text2">wesh bien merci =D</string>
 
     <!-- Page d'acceuil (fragment_home) -->

@@ -11,13 +11,13 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:textAlignment="center"
-        android:drawableStart="@drawable/ic_food_bank_"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:background="@drawable/custom_input"
-        android:drawableLeft="@drawable/ic_food_bank_" />
+        android:background="@drawable/edittext_custom"
+        android:drawableStart="@drawable/ic_food_bank_"
+        android:drawableLeft="@drawable/ic_food_bank_"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/black" />
 
     <ListView
         android:id="@+id/affichageBDD"
@@ -28,7 +28,9 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"
         android:layout_gravity="center"
-        android:background="@drawable/custom_input"
+
+
+
         />
 
 
