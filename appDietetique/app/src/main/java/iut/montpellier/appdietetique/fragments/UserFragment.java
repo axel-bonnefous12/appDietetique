@@ -58,7 +58,6 @@ public class UserFragment extends Fragment {
                 builder.show();
             }
         });
-
         return view;
     }
     /*public void changerInfo(View v){
