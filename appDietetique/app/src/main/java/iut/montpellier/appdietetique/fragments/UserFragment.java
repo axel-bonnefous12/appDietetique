@@ -58,14 +58,8 @@ public class UserFragment extends Fragment {
                 builder.show();
             }
         });
-
-
-
-
         return view;
     }
-
-
     /*public void changerInfo(View v){
         final EditText inputNom= new EditText(getContext());
         inputNom.setInputType(InputType.TYPE_CLASS_TEXT);
