@@ -1,45 +1,23 @@
 package iut.montpellier.appdietetique.fragments;
 
-import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
-import java.security.PKCS12Attribute;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Calendar;
-
-import iut.montpellier.appdietetique.BDD.DbUserManager;
-import iut.montpellier.appdietetique.BDD.MySQLite;
 import iut.montpellier.appdietetique.BDD.PlatManager;
-import iut.montpellier.appdietetique.ListViewActivity;
 import iut.montpellier.appdietetique.R;
-
 import iut.montpellier.appdietetique.adapters.PlatAfficherAdapter;
-import iut.montpellier.appdietetique.models.Journee;
 import iut.montpellier.appdietetique.models.Plat;
-import iut.montpellier.appdietetique.models.Repas;
 
-import static iut.montpellier.appdietetique.BDD.DbUserManager.KEY_DATE;
 
 public class SearchFragment extends Fragment
 {
@@ -47,6 +25,8 @@ public class SearchFragment extends Fragment
 
     ListView listView_affichageBDD;
     EditText editText_search_id;
+
+
 
     @Nullable
     @Override
@@ -59,13 +39,19 @@ public class SearchFragment extends Fragment
 
         initEditTexte(view);
 
+
+
        // Lors d'un click sur un item
+
         listView_affichageBDD.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
-            public void onItemClick(AdapterView<?> list, View v, int pos, long id)
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                //Toast.makeText(SearchFragment.this, "ok!", Toast.LENGTH_SHORT).show();
+                Object listItem = listView_affichageBDD.getItemAtPosition(position);
 
+               // Intent myIntent = new Intent(new Intent(SearchFragment.this, ListViewActivity.class));
+               // startActivity(myIntent);
             }
         });
 
@@ -104,14 +90,5 @@ public class SearchFragment extends Fragment
         listView_affichageBDD.setAdapter(new PlatAfficherAdapter(getContext(), plats));
         listView_affichageBDD.invalidateViews();
     }
-
-
-
-
-
-
-
-
-
 
 }
