@@ -3,16 +3,20 @@ package iut.montpellier.appdietetique.fragments;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import iut.montpellier.appdietetique.BDD.PlatManager;
 import iut.montpellier.appdietetique.R;
 import iut.montpellier.appdietetique.adapters.PlatAfficherAdapter;
@@ -42,21 +46,23 @@ public class SearchFragment extends Fragment
 
 
        // Lors d'un click sur un item
-
         listView_affichageBDD.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Object listItem = listView_affichageBDD.getItemAtPosition(position);
+                //ArrayList<Plat> plats = new ArrayList<>();
+                //Log.i("id", String.valueOf(view));
+                String str = listView_affichageBDD.getItemAtPosition(position).toString();
+                Log.i("stp", str);
 
-               // Intent myIntent = new Intent(new Intent(SearchFragment.this, ListViewActivity.class));
-               // startActivity(myIntent);
+
             }
         });
 
         return view;
     }
+
 
 
     private void initEditTexte(View view)

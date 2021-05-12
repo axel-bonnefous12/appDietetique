@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import java.util.List;
 
 import iut.montpellier.appdietetique.R;
@@ -62,10 +64,19 @@ public class PlatAfficherAdapter extends BaseAdapter {
         TextView nomDuPlatView = convertView.findViewById(R.id.text_afficher_plat);
         nomDuPlatView.setText(nomDuPlat);
 
+
+
+        /*convertView.setBackground(ContextCompat.getDrawable(context, R.drawable.custom_viewlist));
+        convertView.setBackgroundResource(R.drawable.custom_viewlist);
+        ContextCompat.getDrawable(context, R.drawable.custom_viewlist);*/
+
+
         if(position % 2 == 0)
         {
+
             convertView.setBackgroundColor(Color.rgb(155, 167, 71)); // Vert foncé
             //Log.i("color 1", "color 1");
+
         }
         else
         {
