@@ -53,9 +53,11 @@ public class SearchFragment extends Fragment
             {
                 //ArrayList<Plat> plats = new ArrayList<>();
                 //Log.i("id", String.valueOf(view));
-                String str = listView_affichageBDD.getItemAtPosition(position).toString();
-                Log.i("stp", str);
+                //String str = listView_affichageBDD.getItemAtPosition(position).toString();
+                //Log.i("stp", str);
 
+                Plat plat = (Plat) listView_affichageBDD.getAdapter().getItem(position);
+                Log.i("plat", String.valueOf(plat));
 
             }
         });
