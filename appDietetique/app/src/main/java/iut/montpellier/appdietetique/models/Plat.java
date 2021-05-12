@@ -69,6 +69,23 @@ public class Plat implements Parcelable {
         this.quantite = quantite;
     }
 
+    // ----- Utils Methods ----- //
+
+    @Override
+    public String toString() {
+        return "Plat{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", proteines=" + proteines +
+                ", glucides=" + glucides +
+                ", calories=" + calories +
+                ", quantite=" + quantite +
+                ", parcel=" + parcel +
+                ", i=" + i +
+                '}';
+    }
+
+
     // ----- Parcelable interface methods ----- //
 
     // Désérialisation des attributs

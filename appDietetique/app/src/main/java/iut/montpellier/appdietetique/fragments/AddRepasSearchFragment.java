@@ -9,9 +9,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -77,7 +79,14 @@ public class AddRepasSearchFragment extends Fragment {
     }
 
     private void initListView(){
+
         listViewPlats = view.findViewById(R.id.liste_de_plat);
+        listViewPlats.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.i("onItemClick", listViewPlats.getAdapter().getItem(i).toString());
+            }
+        });
     }
 
     private void initEditText(){
