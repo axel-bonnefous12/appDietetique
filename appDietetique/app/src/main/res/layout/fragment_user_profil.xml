@@ -1,155 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#03A9F4">
+    android:background="#03A9F4"
+    android:gravity="center_horizontal">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp"
         android:gravity="center"
         android:text="Mon profil"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/layout_data_user"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="40dp" />
 
     <ImageView
         android:id="@+id/icon_user"
-        android:layout_width="147dp"
-        android:layout_height="144dp"
-        android:src="@drawable/user_image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="172dp"
+        android:layout_height="183dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="200dp"
+        android:src="@drawable/user_image" />
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/layout_data_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="150dp"
+        android:orientation="vertical"
+        android:gravity="center">
 
-
-        <TextView
-            android:id="@+id/nom"
+        <TableLayout
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/nom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Nom: " />
+
+                <TextView
+                    android:id="@+id/champNom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="votre nom" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/prenom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textSize="20sp"
+                    android:text="Prenom: " />
+
+                <TextView
+                    android:id="@+id/champPrenom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="votre prénom" />
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Age: " />
+
+                <TextView
+                    android:id="@+id/champAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="votre age" />
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/poids"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Poids(kg): " />
+
+                <TextView
+                    android:id="@+id/champPoids"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="votre poids en kg" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/sexe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Sexe: " />
+
+                <TextView
+                    android:id="@+id/champSexe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="homme/femme" />
+            </TableRow>
+        </TableLayout>
+        <Button
+            android:id="@+id/btn_profile"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nom: "
-            android:textSize="20dp" />
+            android:text="modifier"
+            />
+    </LinearLayout>
+    <!--Layout  données diététique-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_data_user"
+        >
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20sp">
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20sp"
+                    android:text="masse corporel IMC:">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="0.8 bidule">
+                </TextView>
+            </TableRow>
 
-        <TextView
-            android:id="@+id/champNom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/nom"
-            android:text="MoustafaMoulou"
-            android:textSize="20sp" />
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20sp"
+                    android:text="un autre truc a foutre: ">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="0.8 bidule">
+                </TextView>
+            </TableRow>
 
-        <TextView
-            android:id="@+id/prenom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/nom"
-            android:text="Prenom: "
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/champPrenom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/champNom"
-            android:layout_toRightOf="@id/prenom"
-            android:text="jean"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/prenom"
-            android:layout_marginTop="20dp"
-            android:text="Age: "
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/champAge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/champPrenom"
-            android:layout_marginTop="20dp"
-            android:layout_toRightOf="@id/age"
-            android:text="88"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/champPrenom"
-            android:layout_marginTop="20dp"
-            android:layout_toRightOf="@id/champAge"
-            android:text=" ans"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/poids"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/age"
-            android:text="Poids: "
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/champPoids"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/champAge"
-            android:layout_toRightOf="@id/poids"
-            android:text="72"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/champAge"
-            android:layout_toRightOf="@id/champPoids"
-            android:text=" kg"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/sexe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/poids"
-            android:text="Sexe: "
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/champSexe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/poids"
-            android:layout_toRightOf="@id/sexe"
-            android:text="Homme"
-            android:textSize="20sp" />
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/btn_modif_profil"
-        android:layout_width="151dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="4dp"
-        android:text="modifier informations"
-        app:layout_constraintTop_toBottomOf="@+id/layout_data_user"
-        tools:layout_editor_absoluteX="0dp" />
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20sp"
+                    android:text="encore un  autre truc a foutre: ">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="0.8 bidule">
+                </TextView>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>
