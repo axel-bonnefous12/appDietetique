@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -22,34 +23,20 @@
             android:id="@+id/titrePage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Repas"
+            android:text="Ajouter plat"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:gravity="center"/>
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/liste_de_plat"
-        android:layout_width="match_parent"
-        android:layout_height="270dp"/>
-
-    <Button
-        android:id="@+id/button_add_plat_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/shape_orange_radius"
-        android:text="Ajouter un plat"
-        android:gravity="center"/>
-
-    <!-- titre recap du repas -->
     <TextView
-        android:id="@+id/titre_recapjournalier"
+        android:id="@+id/nom_du_plat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/repas_titre_recapitulatif"
-        android:textSize="20sp"
-        android:gravity="center"/>
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:text="nom du plat"
+        android:gravity="center"
+        android:textSize="25dp"/>
 
     <!-- Layout recap du repas -->
     <LinearLayout
@@ -131,5 +118,57 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="Quantité:"/>
+
+        <EditText
+            android:id="@+id/edit_text_quantite"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_weight="0.3"
+            android:gravity="center"
+            android:background="@drawable/shape_transparent_radius"
+            android:layout_marginVertical="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:inputType="number"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/text_unite_quantite"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_weight="0.50"
+            android:background="@drawable/shape_transparent_radius"
+            android:layout_marginVertical="10dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="g"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_ajouter_plat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/shape_orange_radius"
+        android:text="Ajouter"
+        android:gravity="center"/>
 
 </LinearLayout>

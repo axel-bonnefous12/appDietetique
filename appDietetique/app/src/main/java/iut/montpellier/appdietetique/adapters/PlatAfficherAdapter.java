@@ -65,7 +65,6 @@ public class PlatAfficherAdapter extends BaseAdapter {
         nomDuPlatView.setText(nomDuPlat);
 
 
-
         /*convertView.setBackground(ContextCompat.getDrawable(context, R.drawable.custom_viewlist));
         convertView.setBackgroundResource(R.drawable.custom_viewlist);
         ContextCompat.getDrawable(context, R.drawable.custom_viewlist);*/

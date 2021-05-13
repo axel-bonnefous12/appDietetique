@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
-import iut.montpellier.appdietetique.BDD.MySQLite;
 import iut.montpellier.appdietetique.BDD.PlatManager;
 import iut.montpellier.appdietetique.R;
 import iut.montpellier.appdietetique.adapters.PlatAfficherAdapter;
@@ -81,12 +79,6 @@ public class AddRepasSearchFragment extends Fragment {
     private void initListView(){
 
         listViewPlats = view.findViewById(R.id.liste_de_plat);
-        listViewPlats.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.i("onItemClick", listViewPlats.getAdapter().getItem(i).toString());
-            }
-        });
     }
 
     private void initEditText(){
@@ -118,5 +110,24 @@ public class AddRepasSearchFragment extends Fragment {
     private void actualiseListView(ArrayList<Plat> plats) {
         listViewPlats.setAdapter(new PlatAfficherAdapter(getContext(), plats));
         listViewPlats.invalidateViews();
+        listViewPlats.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Plat plat = (Plat) listViewPlats.getAdapter().getItem(i);
+
+                // Création du bundle d'un bundle de données avec l'objet que l'on veut passé en argument du fragment repas
+                Bundle bundle = new Bundle();
+                bundle.putString("typeRepas", typeRepas);
+                bundle.putLong("date", date.getTime());
+                bundle.putInt("idPlat", plat.getId());
+
+                AddPlatFragment addPlatFragment = new AddPlatFragment();
+                addPlatFragment.setArguments(bundle);
+
+                FragmentTransaction fragmentTransaction = Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, addPlatFragment);
+                fragmentTransaction.commit();
+            }
+        });
     }
 }

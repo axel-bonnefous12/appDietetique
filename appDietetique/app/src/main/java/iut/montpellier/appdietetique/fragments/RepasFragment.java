@@ -66,22 +66,18 @@ public class RepasFragment extends Fragment {
             case "PetitDejeuner":
                 initTextViews(journee.getPetitDejeuner()); // Initialise les text view avec les veleurs du repas
                 initListView(journee.getPetitDejeuner());
-                initAddButton(journee.getPetitDejeuner());
                 break;
             case "Collation":
                 initTextViews(journee.getCollation()); // Initialise les text view avec les veleurs du repas
                 initListView(journee.getCollation());
-                initAddButton(journee.getCollation());
                 break;
             case "Dejeuner":
                 initTextViews(journee.getDejeuner()); // Initialise les text view avec les veleurs du repas
                 initListView(journee.getDejeuner());
-                initAddButton(journee.getDejeuner());
                 break;
             case "Diner":
                 initTextViews(journee.getDiner()); // Initialise les text view avec les veleurs du repas
                 initListView(journee.getDiner());
-                initAddButton(journee.getDiner());
                 break;
             default:
                 break;
@@ -115,26 +111,6 @@ public class RepasFragment extends Fragment {
 
     }
 
-    private void initAddButton(Repas repas){
-        EditText editTextID = view.findViewById(R.id.edit_text_id);
-        EditText editTextQuantite = view.findViewById(R.id.edit_text_quantite);
-        Button buttonAddPlat = view.findViewById(R.id.button_add_plat);
-
-        buttonAddPlat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                platManager.open(); // on ouvre la bbd plat manager en ecriture
-                Plat plat = platManager.getPlatId(Integer.parseInt(editTextID.getText().toString()));
-                plat.setQuantite(Integer.parseInt(editTextQuantite.getText().toString()));
-                platManager.close(); // on ferme le bdd plat manager
-
-                repas.addPlat(dbUserManager,typeRepas,journee.getDate(),plat);
-
-                actualiserPlatListView(); //
-                initTextViews(repas);
-            }
-        });
-    }
 
     private void initListView(Repas repas){
         // Mise à jour de la listView avec les plats
@@ -168,10 +144,5 @@ public class RepasFragment extends Fragment {
            fragmentTransaction.replace(R.id.fragment_container, addRepasSearchFragment);
            fragmentTransaction.commit();
        });
-    }
-
-
-    private void actualiserPlatListView(){
-        listPlats.invalidateViews();
     }
 }
