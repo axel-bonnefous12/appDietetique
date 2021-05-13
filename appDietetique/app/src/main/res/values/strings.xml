@@ -48,6 +48,17 @@
 
 
     <!-- fragment_search -->
+    <!--fragment User spinner -->
+    <string-array name="sexe">
+        <item>homme</item>
+        <item>femme</item>
+    </string-array>
+    <string-array name="profil">
+        <item>sédentaire</item>
+        <item>légèrement actif</item>
+        <item>actif</item>
+        <item>très actif</item>
+    </string-array>
 
 
 </resources>
