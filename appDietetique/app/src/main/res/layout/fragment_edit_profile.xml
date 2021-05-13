@@ -92,25 +92,6 @@
                     android:inputType="number"
                     />
             </TableRow>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="Sexe" />
-
-                <EditText
-                    android:id="@+id/inputSexe"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:inputType="text"
-                    />
-            </TableRow>
-
         </TableLayout>
 
         <Button

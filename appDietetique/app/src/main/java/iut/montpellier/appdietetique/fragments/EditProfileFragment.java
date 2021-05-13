@@ -27,7 +27,7 @@ public class EditProfileFragment extends Fragment {
     private EditText inputSurname;
     private EditText inputAge;
     private EditText inputPoids;
-    private EditText inputSexe;
+
     private SharedPreferences prefs;
     private Button button;
 
@@ -52,13 +52,13 @@ public class EditProfileFragment extends Fragment {
         inputSurname =(EditText) view.findViewById(R.id.inputSurname);
         inputAge =(EditText) view.findViewById(R.id.inputAge);
         inputPoids =(EditText) view.findViewById(R.id.inputPoids);
-        inputSexe =(EditText) view.findViewById(R.id.inputSexe);
+
         //on set les sharedPref
         inputName.setText(nom);
         inputSurname.setText(prenom);
         inputAge.setText(age+"");
         inputPoids.setText(poids+"");
-        inputSexe.setText(sexe);
+
 
         //bouton de validation et sauvegarde
         button.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +69,7 @@ public class EditProfileFragment extends Fragment {
                 String prenom=inputSurname.getText().toString();
                 int age=Integer.parseInt(inputAge.getText().toString());
                 int poids=Integer.parseInt(inputPoids.getText().toString());
-                String sexe=inputSexe.getText().toString();
+
 
 
                 //sauvegarde des datas
