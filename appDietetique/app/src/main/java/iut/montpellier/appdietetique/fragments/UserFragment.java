@@ -78,10 +78,10 @@ public class UserFragment extends Fragment{
         sexeSpinner.setAdapter(sexeSpinnerAdapter);
 
        //spinner choix profil activité
-        /*Spinner profilSpinner = (Spinner)view.findViewById(R.id.spinnerActivite);
+        Spinner profilSpinner = (Spinner)view.findViewById(R.id.spinnerActivite);
         ArrayAdapter<String> profilSpinnerAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.profil));
         profilSpinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        profilSpinner.setAdapter(profilSpinnerAdapter);*/
+        profilSpinner.setAdapter(profilSpinnerAdapter);
 
         //récupérer les valeurs du spinner
       
