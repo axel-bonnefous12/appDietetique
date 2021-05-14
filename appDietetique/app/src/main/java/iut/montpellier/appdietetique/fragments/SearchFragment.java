@@ -41,6 +41,7 @@ public class SearchFragment extends Fragment
         affichageDb = new PlatManager(this.getContext()); // Instance la bdd des plats
         listView_affichageBDD = view.findViewById(R.id.affichageBDD);
 
+
         initEditTexte(view);
 
 
