@@ -35,7 +35,6 @@ public class EditProfileFragment extends Fragment {
     private EditText inputPoids;
     private EditText inputTaille;
     private TextView inputSexe;
-    private String sexe="";
 
     private SharedPreferences prefs;
     private Button button;
@@ -48,27 +47,27 @@ public class EditProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_edit_profile, container, false);
         this.button = view.findViewById(R.id.btn_sauvegarder);
+        Button btn_changer_sexe = (Button)view.findViewById(R.id.BtnsexeChanger);//bouton de changement du sexe
 
         //selection du sexe pour pouvoir les sauvegarder
         inputSexe =(TextView) view.findViewById(R.id.sexeInput);
-        inputSexe.setOnClickListener(new View.OnClickListener() {
+        btn_changer_sexe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder changerDesexe = new AlertDialog.Builder(view.getContext());
-                changerDesexe.setTitle("définir mon sexe");
-                changerDesexe.setMessage("Etes vous une femme?");
-                changerDesexe.setPositiveButton("oui", new DialogInterface.OnClickListener() {
+                changerDesexe.setMessage("vous etes?");
+                changerDesexe.setPositiveButton("une femme", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        sexe="femme";
-                        inputSexe.setText(sexe);
+                        inputSexe.setText("féminin");
+                        Toast.makeText(view.getContext(), "changement fait", Toast.LENGTH_SHORT).show();
                     }
                 });
-                changerDesexe.setNegativeButton("non", new DialogInterface.OnClickListener() {
+                changerDesexe.setNegativeButton("un homme", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        sexe="homme";
-                        inputSexe.setText(sexe);
+                        inputSexe.setText("masculin");
+                        Toast.makeText(view.getContext(), "changement fait", Toast.LENGTH_SHORT).show();
                     }
                 });
                 changerDesexe.show();
@@ -91,7 +90,6 @@ public class EditProfileFragment extends Fragment {
         inputTaille = (EditText) view.findViewById(R.id.inputTaille);
 
 
-
         //on set les sharedPref
         inputName.setText(nom);
         inputSurname.setText(prenom);
@@ -110,7 +108,7 @@ public class EditProfileFragment extends Fragment {
                 int age=Integer.parseInt(inputAge.getText().toString());
                 int poids=Integer.parseInt(inputPoids.getText().toString());
                 int taille = Integer.parseInt(inputTaille.getText().toString());
-                String monSexe = prefs.getString("MON_SEXE","homme/femme");
+                String monSexe = prefs.getString("MON_SEXE","féminin/masculin");
 
                 //sauvegarde des datas
                 SharedPreferences.Editor editor = prefs.edit();
@@ -119,7 +117,7 @@ public class EditProfileFragment extends Fragment {
                 editor.putInt("MON_AGE",age);
                 editor.putInt("MON_POIDS",poids);
                 editor.putInt("MA_TAILLE",taille);
-                editor.putString("MON_SEXE",sexe);
+                editor.putString("MON_SEXE",inputSexe.getText().toString());
                 editor.apply();
 
                 //return to profile

@@ -74,7 +74,7 @@ public class UserFragment extends Fragment{
         int monAge=prefs.getInt("MON_AGE", 1);
         int monPoids=prefs.getInt("MON_POIDS", 1);
         int maTaille=prefs.getInt("MA_TAILLE",100);
-        String monSexe=prefs.getString("MON_SEXE","homme/femme");
+        String monSexe=prefs.getString("MON_SEXE","féminin/masculin");
 
         this.nom.setText(name);
         this.prenom.setText(surname);
@@ -138,7 +138,7 @@ public class UserFragment extends Fragment{
             float calculEnergieKj = 0;
              String sexe = monSexe ;
 
-            if ( sexe.equals("femme")) {
+            if ( sexe.equals("féminin")) {
                 if (monAge >= 18 && monAge <= 29) {
                     calculEnergieKj = (float) ((0.062*monPoids) + 2.036)*239;
                 }
