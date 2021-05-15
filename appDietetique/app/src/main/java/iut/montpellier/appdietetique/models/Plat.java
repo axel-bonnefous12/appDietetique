@@ -2,13 +2,14 @@ package iut.montpellier.appdietetique.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 public class Plat implements Parcelable {
     private int id;
     private String nom;
-    private float proteines; //Pour 100g
-    private float glucides; //Pour 100g
-    private float calories; //Pour 100g
+    private float proteines;
+    private float glucides;
+    private float calories;
     private float quantite;
 
     // Attribut for parcelable interface
@@ -66,6 +67,7 @@ public class Plat implements Parcelable {
     }
 
     public void setQuantite(float quantite) {
+        updateValeursApports(this.quantite, quantite);
         this.quantite = quantite;
     }
 
@@ -83,6 +85,13 @@ public class Plat implements Parcelable {
                 ", parcel=" + parcel +
                 ", i=" + i +
                 '}';
+    }
+
+    private void updateValeursApports(float ancienneQuantite, float nouvelleQuantite){
+        proteines = (proteines * nouvelleQuantite) /ancienneQuantite;
+        glucides = (glucides * nouvelleQuantite) /ancienneQuantite;
+        calories = (calories * nouvelleQuantite) /ancienneQuantite;
+        Log.i("updateText", "" + proteines);
     }
 
 

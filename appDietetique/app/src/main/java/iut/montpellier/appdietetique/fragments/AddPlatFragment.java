@@ -1,9 +1,15 @@
 package iut.montpellier.appdietetique.fragments;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -81,6 +87,25 @@ public class AddPlatFragment extends Fragment {
 
         editText_quantite = view.findViewById(R.id.edit_text_quantite);
         editText_quantite.setText("" + quantite);
+        editText_quantite.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (Float.parseFloat("" + editable) > 1){
+                    plat.setQuantite(Float.parseFloat("" + editable));
+                    updateText();
+                }
+            }
+        });
     }
 
     private void initAjouterBouton(){
@@ -99,6 +124,12 @@ public class AddPlatFragment extends Fragment {
         button_back.setOnClickListener(view1 -> {
             allerRepasSearchFragment();
         });
+    }
+
+    private void updateText(){
+        textView_totalProteines.setText("" + plat.getProteines());
+        textView_totalGlucides.setText("" + plat.getGlucides());
+        textView_totalCalories.setText("" + plat.getCalories());
     }
 
     private void ajouterPlatDansBdd(){

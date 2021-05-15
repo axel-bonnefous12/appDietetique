@@ -143,6 +143,7 @@
             android:layout_marginRight="20dp"
             android:padding="10dp"
             android:inputType="number"
+            android:imeOptions="actionDone"
             android:textSize="20dp"/>
 
         <TextView
