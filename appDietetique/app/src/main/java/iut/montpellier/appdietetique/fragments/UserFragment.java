@@ -1,18 +1,12 @@
 package iut.montpellier.appdietetique.fragments;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,8 +16,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import org.w3c.dom.Text;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.chart.common.listener.Event;
+import com.anychart.chart.common.listener.ListenersInterface;
+import com.anychart.charts.Pie;
+import com.anychart.enums.Align;
+import com.anychart.enums.LegendLayout;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import iut.montpellier.appdietetique.R;
@@ -31,12 +35,14 @@ import iut.montpellier.appdietetique.R;
 import static android.content.Context.MODE_PRIVATE;
 
 public class UserFragment extends Fragment{
-     View view;
+
     private TextView nom;
     private TextView prenom;
     private TextView age;
     private TextView poids;
 
+    View view;
+    Button button_change_fragment;
 
     @Nullable
     @Override
@@ -48,6 +54,7 @@ public class UserFragment extends Fragment{
         poids = view.findViewById(R.id.champPoids);
 
         Button button =(Button) view.findViewById(R.id.btn_profile);
+        Button button2 =(Button) view.findViewById(R.id.btn_graphique_fragment); // Bouton GraphiqueFragment
 
         SharedPreferences prefs = getContext().getSharedPreferences("MY_DATA",MODE_PRIVATE);
         String name=prefs.getString("MON_NOM","pas de nom");
@@ -83,12 +90,31 @@ public class UserFragment extends Fragment{
         profilSpinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         profilSpinner.setAdapter(profilSpinnerAdapter);
 
-        //récupérer les valeurs du spinner
-      
-
+        //Se rendre sur le Fragment Graphique
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                allerGraphiqueFragment();
+            }
+        });
 
 
         return view;
     }
 
+
+
+    private void allerGraphiqueFragment()
+    {
+        GraphiqueFragment graphiqueFragment = new GraphiqueFragment();
+
+        FragmentTransaction fragmentTransaction = Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, graphiqueFragment);
+        fragmentTransaction.commit();
+    }
+
+
+
 }
+
