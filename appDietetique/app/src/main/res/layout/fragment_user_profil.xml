@@ -161,12 +161,19 @@
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Sexe: " />
+                <TextView
+                    android:id="@+id/champSexe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:hint="homme/femme"
+                    />
 
-                <Spinner
+                <!--<Spinner
                     android:id="@+id/spinnerSexe"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                </Spinner>
+                </Spinner>-->
             </TableRow>
         </TableLayout>
     </LinearLayout>

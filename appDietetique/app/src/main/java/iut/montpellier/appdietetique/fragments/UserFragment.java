@@ -1,6 +1,8 @@
 package iut.montpellier.appdietetique.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,6 +45,9 @@ public class UserFragment extends Fragment{
     private TextView age;
     private TextView poids;
     private TextView taille;
+    private TextView sexeUser;
+
+
 
     View view;
     Button button_change_fragment;
@@ -57,24 +62,28 @@ public class UserFragment extends Fragment{
         age = view.findViewById(R.id.champAge);
         poids = view.findViewById(R.id.champPoids);
         taille = view.findViewById(R.id.champTaille);
+        sexeUser = view.findViewById(R.id.champSexe);
 
-        Button button =(Button) view.findViewById(R.id.btn_profile);
+        Button button =(Button) view.findViewById(R.id.btn_profile);//bouton de modification profile
         Button button2 =(Button) view.findViewById(R.id.btn_graphique_fragment); // Bouton GraphiqueFragment
 
+        //sharedPreferences
         SharedPreferences prefs = getContext().getSharedPreferences("MY_DATA",MODE_PRIVATE);
         String name=prefs.getString("MON_NOM","pas de nom");
         String surname=prefs.getString("MON_PRENOM","pas de Prenom");
         int monAge=prefs.getInt("MON_AGE", 1);
         int monPoids=prefs.getInt("MON_POIDS", 1);
         int maTaille=prefs.getInt("MA_TAILLE",100);
-
+        String monSexe=prefs.getString("MON_SEXE","homme/femme");
 
         this.nom.setText(name);
         this.prenom.setText(surname);
         this.age.setText(monAge+"");
         this.poids.setText(monPoids+"");
         this.taille.setText(maTaille+"");
+        this.sexeUser.setText(monSexe);
 
+        //on va sur la page de l'edition profile pour remplir les champs
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,11 +94,6 @@ public class UserFragment extends Fragment{
                 fragmentTransaction.commit(); //commit du fragment
             }
         });
-        //spinner choix sexe
-        Spinner sexeSpinner = (Spinner)view.findViewById(R.id.spinnerSexe);
-        ArrayAdapter<String> sexeSpinnerAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.sexe));
-        sexeSpinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        sexeSpinner.setAdapter(sexeSpinnerAdapter);
 
        //spinner choix profil activité
         Spinner profilSpinner = (Spinner)view.findViewById(R.id.spinnerActivite);
@@ -128,32 +132,34 @@ public class UserFragment extends Fragment{
             }
         }
 
-         //besoin énergétique
-        if(monAge !=0) {
+         //besoin énergétique selon une femme ou un homme
+        if(monAge !=0 && monSexe!="") {
             TextView valeurApport = view.findViewById(R.id.valeurColorie);
             float calculEnergieKj = 0;
-            final String sexe = "homme";//(String) sexeSpinner.getSelectedItem().toString();
+             String sexe = monSexe ;
 
-            if (sexe == "femme") {
+            if ( sexe.equals("femme")) {
                 if (monAge >= 18 && monAge <= 29) {
-                    calculEnergieKj = (float) ((0.062 * monPoids) + 2.036) * 239;
+                    calculEnergieKj = (float) ((0.062*monPoids) + 2.036)*239;
                 }
-                if (monAge >= 30 && monAge <= 60) {
-                    calculEnergieKj = (float) ((0.034 * monPoids) + 3.538) * 239;
-                } else {
-                    calculEnergieKj = (float) ((0.038 * monPoids) + 3.538) * 239;
+                else if (monAge >= 30 && monAge <= 60) {
+                    calculEnergieKj = (float) ((0.034*monPoids) + 3.538)*239;
+                }
+                else {
+                    calculEnergieKj = (float) ((0.038*monPoids) + 3.538)*239;
                 }
                 Math.floor(calculEnergieKj);
                 valeurApport.setText(calculEnergieKj + "");
             }
-            if (sexe == "homme") {
+          else{
                 if (monAge >= 18 && monAge <= 29) {
-                    calculEnergieKj = (float) ((0.063 * monPoids) + 2.896) * 239;
+                    calculEnergieKj = (float) ((0.063*monPoids) + 2.896)*239;
                 }
-                if (monAge >= 30 && monAge <= 60) {
-                    calculEnergieKj = (float) (0.048 * monPoids + 3.653) * 239;
-                } else {
-                    calculEnergieKj = (float) ((0.049 * monPoids) + 2.459) * 239;
+                else if (monAge >= 30 && monAge <= 60) {
+                    calculEnergieKj = (float) (0.048*monPoids + 3.653)*239;
+                }
+                else {
+                    calculEnergieKj = (float) ((0.049*monPoids) + 2.459)*239;
                 }
                 Math.floor(calculEnergieKj);
                 valeurApport.setText(calculEnergieKj + "");

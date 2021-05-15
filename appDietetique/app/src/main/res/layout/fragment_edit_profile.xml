@@ -106,6 +106,22 @@
                     android:inputType="number"
                     android:textSize="20sp" />
             </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/darkOrange"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:text="Sexe: " />
+                <TextView
+                    android:id="@+id/sexeInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:hint="homme/femme"
+                    />
+            </TableRow>
         </TableLayout>
 
         <Button
