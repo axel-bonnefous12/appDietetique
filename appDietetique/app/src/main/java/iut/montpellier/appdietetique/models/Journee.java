@@ -14,6 +14,7 @@ public class Journee {
     private Dejeuner dejeuner;
     private Diner diner;
 
+
     // ----- Constructeurs ----- //
     public Journee(Date date, DbUserManager dbUserManager){
         this.date = date;

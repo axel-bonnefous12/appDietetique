@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/Orange"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/ic_action_back"/>
+
+        <TextView
+            android:id="@+id/titrePage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/afficher_nomDuPlat"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:text="nom du plat"
+        android:gravity="center"
+        android:textSize="25dp"/>
+
+    <!-- Layout recap du repas -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/shape_lightgrey_radius"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- layout proteine -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- titre proteine -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/repas_proteines"
+                android:textSize="20sp" />
+
+            <!-- valeur proteine -->
+            <TextView
+                android:id="@+id/afficher_proteine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="0"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!-- layout glucides -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- titre glucides -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/repas_glucides"
+                android:textSize="20sp" />
+
+            <!-- valeur glucides -->
+            <TextView
+                android:id="@+id/afficher_glucides"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="0"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!-- layout calories -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- titre calories -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/repas_calories"
+                android:textSize="20sp" />
+
+            <!-- valeur calories -->
+            <TextView
+                android:id="@+id/afficher_calories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="0"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

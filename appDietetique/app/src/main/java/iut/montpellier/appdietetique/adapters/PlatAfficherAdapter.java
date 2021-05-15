@@ -73,13 +73,13 @@ public class PlatAfficherAdapter extends BaseAdapter {
         if(position % 2 == 0)
         {
 
-            convertView.setBackgroundColor(Color.rgb(155, 167, 71)); // Vert foncé
+            convertView.setBackgroundColor(Color.rgb(181, 199, 50)); // Vert foncé
             //Log.i("color 1", "color 1");
 
         }
         else
         {
-            convertView.setBackgroundColor(Color.rgb(181, 198, 60)); // Vert clair
+            convertView.setBackgroundColor(Color.rgb(219, 240, 67)); // Vert clair
             //Log.i("color 2","color 2");
         }
 
