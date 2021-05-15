@@ -97,66 +97,68 @@ public class UserFragment extends Fragment{
         profilSpinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         profilSpinner.setAdapter(profilSpinnerAdapter);
 
-        //calcul IMC poids/(taille en cm * taille en cm) on cast et on arrondi au supérieur pour l'indice Imc en valeur
-        TextView imcText = view.findViewById(R.id.imcText);
-        TextView Imc = view.findViewById(R.id.ValeurImc);
-        float T1= ((float)(maTaille)/100);
-        float imcFloat = (float) Math.ceil(monPoids/(T1*T1));
-        Imc.setText(imcFloat+"");
+        /*profilSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               String txt = parent.getItemAtPosition(position).toString();
+            }
+        });*/
 
-         if(imcFloat<17){
-             imcText.setText("dénutrition");
-         }
-         else if(imcFloat>=17 && imcFloat <=18){
-            imcText.setText("maigreur");
-         }
-         else if(imcFloat>=19 && imcFloat <=25){
-             imcText.setText("corpulence normale");
-         }
-         else if(imcFloat>=26 && imcFloat <=30){
-             imcText.setText("surpoids");
-         }
-         else if(imcFloat>=31 && imcFloat <=35){
-             imcText.setText("obésité modéré");
-         }
-         else if(imcFloat>=36 && imcFloat <=40){
-             imcText.setText("obésité sévère");
-         }
-         else{
-             imcText.setText("obésité morbide");
-         }
+        //calcul IMC poids/(taille en cm * taille en cm) on cast et on arrondi au supérieur pour l'indice Imc en valeur
+        if(maTaille!=0 || monPoids !=0) {
+            TextView imcText = view.findViewById(R.id.imcText);
+            TextView Imc = view.findViewById(R.id.ValeurImc);
+            float T1 = ((float) (maTaille) / 100);
+            float imcFloat = (float) Math.ceil(monPoids / (T1 * T1));
+            Imc.setText(imcFloat + "");
+            if (imcFloat < 17) {
+                imcText.setText("dénutrition");
+            } else if (imcFloat >= 17 && imcFloat <= 18) {
+                imcText.setText("maigreur");
+            } else if (imcFloat >= 19 && imcFloat <= 25) {
+                imcText.setText("corpulence normale");
+            } else if (imcFloat >= 26 && imcFloat <= 30) {
+                imcText.setText("surpoids");
+            } else if (imcFloat >= 31 && imcFloat <= 35) {
+                imcText.setText("obésité modéré");
+            } else if (imcFloat >= 36 && imcFloat <= 40) {
+                imcText.setText("obésité sévère");
+            } else if (imcFloat > 40) {
+                imcText.setText("obésité morbide");
+            }
+        }
 
          //besoin énergétique
-        TextView valeurApport = view.findViewById(R.id.valeurColorie);
-         float calculEnergieKj=0;
-         final String sexe ="homme";//(String) sexeSpinner.getSelectedItem().toString();
+        if(monAge !=0) {
+            TextView valeurApport = view.findViewById(R.id.valeurColorie);
+            float calculEnergieKj = 0;
+            final String sexe = "homme";//(String) sexeSpinner.getSelectedItem().toString();
 
-         if(sexe=="femme"){
-             if(monAge>=18 && monAge<=29){
-                calculEnergieKj =  (float) (((0.062*monPoids)+2.036)*239);
-             }
-             if(monAge>=30 && monAge<=60){
-                 calculEnergieKj = (float) ((0.034*monPoids)+3.538)*239;
-             }
-             else{
-                 calculEnergieKj =  (float)((0.038*monPoids)+3.538)*239;
-             }
-             Math.floor(calculEnergieKj);
-             valeurApport.setText(calculEnergieKj+"");
-         }
-         if(sexe=="homme"){
-             if(monAge>=18 && monAge<=29){
-                 calculEnergieKj = (float) ((0.063 * monPoids) + 2.896)*(239);
-             }
-             if(monAge>=30 && monAge<=60){
-                 calculEnergieKj = (float) (0.048*monPoids+3.653)*239;
-             }
-             else{
-                 calculEnergieKj = (float) ((0.049*monPoids)+2.459)*239;
-             }
-             Math.floor(calculEnergieKj);
-             valeurApport.setText(calculEnergieKj+"");
-         }
+            if (sexe == "femme") {
+                if (monAge >= 18 && monAge <= 29) {
+                    calculEnergieKj = (float) ((0.062 * monPoids) + 2.036) * 239;
+                }
+                if (monAge >= 30 && monAge <= 60) {
+                    calculEnergieKj = (float) ((0.034 * monPoids) + 3.538) * 239;
+                } else {
+                    calculEnergieKj = (float) ((0.038 * monPoids) + 3.538) * 239;
+                }
+                Math.floor(calculEnergieKj);
+                valeurApport.setText(calculEnergieKj + "");
+            }
+            if (sexe == "homme") {
+                if (monAge >= 18 && monAge <= 29) {
+                    calculEnergieKj = (float) ((0.063 * monPoids) + 2.896) * 239;
+                }
+                if (monAge >= 30 && monAge <= 60) {
+                    calculEnergieKj = (float) (0.048 * monPoids + 3.653) * 239;
+                } else {
+                    calculEnergieKj = (float) ((0.049 * monPoids) + 2.459) * 239;
+                }
+                Math.floor(calculEnergieKj);
+                valeurApport.setText(calculEnergieKj + "");
+            }
+        }
 
         //Se rendre sur le Fragment Graphique
         button2.setOnClickListener(new View.OnClickListener() {
@@ -170,7 +172,6 @@ public class UserFragment extends Fragment{
 
         return view;
     }
-
 
 
     private void allerGraphiqueFragment()

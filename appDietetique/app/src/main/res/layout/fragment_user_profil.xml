@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#15C1AA"
+    android:background="@color/white"
     android:gravity="center_horizontal">
 
     <Button
@@ -21,6 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60sp"
         android:gravity="center"
+        android:background="@color/darkOrange"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:text="Mon profil"
@@ -42,6 +43,7 @@
         android:layout_marginLeft="10sp"
         android:layout_marginTop="-30sp"
         android:background="@drawable/rounded_button"
+        android:textColor="@color/white"
         android:textSize="15sp"
         android:text="modifier"
         />
@@ -68,7 +70,7 @@
                     android:id="@+id/nom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/darkOrange"
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Nom: " />
@@ -87,7 +89,7 @@
                     android:id="@+id/prenom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/darkOrange"
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Prenom: " />
@@ -105,7 +107,7 @@
                     android:id="@+id/age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/darkOrange"
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Age: " />
@@ -122,7 +124,7 @@
                     android:id="@+id/poids"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/darkOrange"
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Poids(kg): " />
@@ -138,7 +140,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/darkOrange"
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Taille(cm): " />
@@ -155,7 +157,7 @@
                     android:id="@+id/sexe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/darkOrange"
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Sexe: " />
@@ -181,7 +183,7 @@
             android:id="@+id/profilActivie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/darkOrange"
             android:textAllCaps="true"
             android:textSize="20sp"
             android:layout_marginLeft="15sp"
@@ -204,7 +206,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/darkOrange"
                     android:textSize="20sp"
                     android:layout_marginLeft="15sp"
                     android:text="IMC: "/>
@@ -214,7 +216,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:layout_marginLeft="-80sp"
-                    android:hint="valeur"
+                    android:hint="0"
                     />
                 <TextView
                     android:id="@+id/imcText"
@@ -223,13 +225,13 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="-80sp"
-                    android:text="'normal'"/>
+                    android:text="pas de données"/>
             </TableRow>
            <TableRow>
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:textColor="@color/white"
+                   android:textColor="@color/darkOrange"
                    android:textSize="20sp"
                    android:layout_marginLeft="15sp"
                    android:text="Besoin cal(kj): "/>
@@ -239,6 +241,7 @@
                    android:layout_height="wrap_content"
                    android:textSize="18sp"
                    android:textStyle="bold"
+                   android:hint="pas de données"
                    />
            </TableRow>
         </TableLayout>
