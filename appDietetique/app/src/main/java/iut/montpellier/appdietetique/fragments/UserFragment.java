@@ -46,6 +46,7 @@ public class UserFragment extends Fragment{
     private TextView poids;
     private TextView taille;
     private TextView sexeUser;
+    private TextView activiteUser;
 
 
 
@@ -63,6 +64,7 @@ public class UserFragment extends Fragment{
         poids = view.findViewById(R.id.champPoids);
         taille = view.findViewById(R.id.champTaille);
         sexeUser = view.findViewById(R.id.champSexe);
+        activiteUser = view.findViewById(R.id.champActivite);
 
         Button button =(Button) view.findViewById(R.id.btn_profile);//bouton de modification profile
         Button button2 =(Button) view.findViewById(R.id.btn_graphique_fragment); // Bouton GraphiqueFragment
@@ -75,6 +77,7 @@ public class UserFragment extends Fragment{
         int monPoids=prefs.getInt("MON_POIDS", 1);
         int maTaille=prefs.getInt("MA_TAILLE",100);
         String monSexe=prefs.getString("MON_SEXE","féminin/masculin");
+        String monActivite = prefs.getString("MON_ACTIVITE","activité");
 
         this.nom.setText(name);
         this.prenom.setText(surname);
@@ -82,6 +85,7 @@ public class UserFragment extends Fragment{
         this.poids.setText(monPoids+"");
         this.taille.setText(maTaille+"");
         this.sexeUser.setText(monSexe);
+        this.activiteUser.setText(monActivite);
 
         //on va sur la page de l'edition profile pour remplir les champs
         button.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +100,12 @@ public class UserFragment extends Fragment{
         });
 
        //spinner choix profil activité
-        Spinner profilSpinner = (Spinner)view.findViewById(R.id.spinnerActivite);
+        /*Spinner profilSpinner = (Spinner)view.findViewById(R.id.spinnerActivite);
         ArrayAdapter<String> profilSpinnerAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.profil));
         profilSpinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         profilSpinner.setAdapter(profilSpinnerAdapter);
 
-        /*profilSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        profilSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                String txt = parent.getItemAtPosition(position).toString();

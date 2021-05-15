@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="200sp"
+        android:layout_marginTop="150sp"
         android:orientation="vertical"
         android:layout_marginLeft="50sp"
         android:gravity="left">
@@ -122,6 +122,31 @@
                     />
                 <Button
                     android:id="@+id/BtnsexeChanger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18sp"
+                    android:layout_marginLeft="10sp"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:text="changer"
+                    />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:text="ACTIVITE: " />
+                <TextView
+                    android:id="@+id/activiteInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:hint="niveau activite"
+                    />
+                <Button
+                    android:id="@+id/BtnActiviteChanger"
                     android:layout_width="wrap_content"
                     android:layout_height="18sp"
                     android:layout_marginLeft="10sp"

@@ -19,6 +19,9 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 import iut.montpellier.appdietetique.MainActivity;
@@ -35,6 +38,8 @@ public class EditProfileFragment extends Fragment {
     private EditText inputPoids;
     private EditText inputTaille;
     private TextView inputSexe;
+    private TextView inputActivite;
+
 
     private SharedPreferences prefs;
     private Button button;
@@ -48,6 +53,7 @@ public class EditProfileFragment extends Fragment {
         view= inflater.inflate(R.layout.fragment_edit_profile, container, false);
         this.button = view.findViewById(R.id.btn_sauvegarder);
         Button btn_changer_sexe = (Button)view.findViewById(R.id.BtnsexeChanger);//bouton de changement du sexe
+        Button btn_changer_activite = (Button)view.findViewById(R.id.BtnActiviteChanger);//bouton de changement activité
 
         //selection du sexe pour pouvoir les sauvegarder
         inputSexe =(TextView) view.findViewById(R.id.sexeInput);
@@ -73,6 +79,47 @@ public class EditProfileFragment extends Fragment {
                 changerDesexe.show();
             }
         });
+        //selection de l'activite pour pouvoir les sauvegarder
+        inputActivite =(TextView) view.findViewById(R.id.activiteInput);
+        btn_changer_activite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    final String[] items = {"sédentaire", "légèrement actif", "actif", "très actif"};
+                    final ArrayList<Integer> selectedList = new ArrayList<>();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+
+                    builder.setTitle("votre faire UN choix");
+                    builder.setMultiChoiceItems(items, null,
+                            new DialogInterface.OnMultiChoiceClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                    if (isChecked) {
+                                        selectedList.add(which);
+
+                                    } else if (selectedList.contains(which)) {
+                                        selectedList.remove(which);
+                                    }
+                                }
+                            });
+
+                    builder.setPositiveButton("DONE", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ArrayList<String> selectedStrings = new ArrayList<>();
+
+                            for (int j = 0; j < selectedList.size(); j++) {
+                                selectedStrings.add(items[selectedList.get(j)]);
+                                inputActivite.setText(selectedStrings.get(j).toString());
+                            }
+
+                            //Toast.makeText(view.getContext(), "Items selected are: " + Arrays.toString(selectedStrings.toArray()), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    builder.show();
+            }
+        });
+
 
         prefs = getContext().getSharedPreferences("MY_DATA",MODE_PRIVATE);
         String nom = prefs.getString("MON_NOM","");
@@ -81,6 +128,7 @@ public class EditProfileFragment extends Fragment {
         int poids = prefs.getInt("MON_POIDS", 1);
         int taille = prefs.getInt("MA_TAILLE",100);
         String monSexe = prefs.getString("MON_SEXE","homme/femme");
+        String activite = prefs.getString("MON_ACTIVITE","activité");
 
 
         inputName =(EditText) view.findViewById(R.id.inputName);
@@ -97,6 +145,7 @@ public class EditProfileFragment extends Fragment {
         inputPoids.setText(poids+"");
         inputTaille.setText(taille+"");
         inputSexe.setText(monSexe);
+        inputActivite.setText(activite);
 
         //bouton de validation et sauvegarde
         button.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +158,7 @@ public class EditProfileFragment extends Fragment {
                 int poids=Integer.parseInt(inputPoids.getText().toString());
                 int taille = Integer.parseInt(inputTaille.getText().toString());
                 String monSexe = prefs.getString("MON_SEXE","féminin/masculin");
+                String activite = prefs.getString("MON_ACTIVITE","activité");
 
                 //sauvegarde des datas
                 SharedPreferences.Editor editor = prefs.edit();
@@ -118,6 +168,7 @@ public class EditProfileFragment extends Fragment {
                 editor.putInt("MON_POIDS",poids);
                 editor.putInt("MA_TAILLE",taille);
                 editor.putString("MON_SEXE",inputSexe.getText().toString());
+                editor.putString("MON_ACTIVITE",inputActivite.getText().toString());
                 editor.apply();
 
                 //return to profile
