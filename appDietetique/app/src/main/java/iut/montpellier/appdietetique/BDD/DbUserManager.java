@@ -131,7 +131,7 @@ public class DbUserManager extends SQLiteOpenHelper {
         try {
             //execute la requette dans la table
             this.getWritableDatabase().execSQL(
-                    "DELETE FROM " + nomTable + "WHERE " + KEY_ID_PLAT + "=" + "'" + idPlat + "'"
+                    "DELETE FROM " + nomTable + " WHERE " + KEY_ID_PLAT + "=" + "'" + idPlat + "'"
             );
         } catch (SQLiteException e) {
             // le tuple existe deja
