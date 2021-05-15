@@ -66,4 +66,5 @@ public class PlatItemAdapter extends BaseAdapter {
 
         return view;
     }
+
 }

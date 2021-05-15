@@ -12,8 +12,16 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.charts.Pie;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
+import java.util.ArrayList;
+import java.util.List;
 
 import iut.montpellier.appdietetique.fragments.HomeFragment;
 import iut.montpellier.appdietetique.fragments.SearchFragment;
@@ -34,6 +42,11 @@ public class MainActivity extends AppCompatActivity
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         bottomNav.setSelectedItemId(R.id.nav_home);// set nav_hom selectionné à la creation
+
+
+
+
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
