@@ -16,6 +16,10 @@
     <color name="TEST_2">#FFFFFF</color>
     <color name="TEST_3">#FFFFFF</color>
     <color name="TEST_4">#FFFFFF</color>
+    <color name="warning">#FE0009</color>
+    <color name="light_orange">#D5A74B</color>
+    <color name="orange">#EFAA20</color>
+
 
 
 </resources>

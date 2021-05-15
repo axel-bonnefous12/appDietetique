@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#03A9F4"
+    android:background="#15C1AA"
     android:gravity="center_horizontal">
 
     <Button
@@ -19,26 +19,40 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="97dp"
+        android:layout_marginTop="60sp"
         android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:text="Mon profil"
-        android:textSize="40dp" />
+        android:textSize="50sp" />
 
     <ImageView
         android:id="@+id/icon_user"
-        android:layout_width="172dp"
+        android:layout_width="170dp"
         android:layout_height="183dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginLeft="-25sp"
+        android:layout_marginTop="200sp"
         android:src="@drawable/user_image" />
+    <Button
+        android:id="@+id/btn_profile"
+        android:layout_width="100dp"
+        android:layout_height="17sp"
+        android:layout_below="@id/icon_user"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="-30sp"
+        android:background="@drawable/rounded_button"
+        android:textSize="15sp"
+        android:text="modifier"
+        />
 
     <LinearLayout
         android:id="@+id/layout_data_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="150dp"
+        android:layout_marginTop="200sp"
+        android:layout_marginLeft="130sp"
         android:orientation="vertical"
         android:gravity="center">
 
@@ -54,6 +68,8 @@
                     android:id="@+id/nom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Nom: " />
 
@@ -71,7 +87,8 @@
                     android:id="@+id/prenom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:textColor="@color/white"
+                    android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Prenom: " />
 
@@ -88,6 +105,8 @@
                     android:id="@+id/age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Age: " />
 
@@ -99,11 +118,12 @@
                     android:text="votre age" />
             </TableRow>
             <TableRow>
-
                 <TextView
                     android:id="@+id/poids"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Poids(kg): " />
 
@@ -116,9 +136,27 @@
             </TableRow>
             <TableRow>
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:text="Taille(cm): " />
+
+                <TextView
+                    android:id="@+id/champTaille"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="votre taille en cm" />
+            </TableRow>
+            <TableRow>
+                <TextView
                     android:id="@+id/sexe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAllCaps="true"
                     android:textSize="20sp"
                     android:text="Sexe: " />
 
@@ -129,19 +167,13 @@
                 </Spinner>
             </TableRow>
         </TableLayout>
-        <Button
-            android:id="@+id/btn_profile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="modifier"
-            />
     </LinearLayout>
     <!--Layout  données diététique-->
     <LinearLayout
         android:id="@+id/laytoutActivite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="50sp"
         android:layout_below="@id/layout_data_user"
         android:orientation="horizontal"
         >
@@ -149,8 +181,10 @@
             android:id="@+id/profilActivie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
             android:textSize="20sp"
-            android:layout_marginLeft="30sp"
+            android:layout_marginLeft="15sp"
             android:text="niveau d'activité:"/>
         <Spinner
             android:id="@+id/spinnerActivite"
@@ -159,12 +193,56 @@
         </Spinner>
 
     </LinearLayout>
-    <TextView
-        android:id="@+id/blabla"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="adada"
-        android:layout_below="@id/laytoutActivite"/>
+        android:layout_below="@id/laytoutActivite">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="15sp"
+                    android:text="IMC: "/>
+                <TextView
+                    android:id="@+id/ValeurImc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="-80sp"
+                    android:hint="valeur"
+                    />
+                <TextView
+                    android:id="@+id/imcText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="-80sp"
+                    android:text="'normal'"/>
+            </TableRow>
+           <TableRow>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/white"
+                   android:textSize="20sp"
+                   android:layout_marginLeft="15sp"
+                   android:text="Besoin cal(kj): "/>
+               <TextView
+                   android:id="@+id/valeurColorie"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="18sp"
+                   android:textStyle="bold"
+                   />
+           </TableRow>
+        </TableLayout>
+    </LinearLayout>
 
 
 
