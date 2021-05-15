@@ -108,6 +108,7 @@ public class DbUserManager extends SQLiteOpenHelper {
      * @param idPlat id du plat dans la bdd data.sql
      * @param quantite quantité mangé
      */
+    // Méthode : Ajouter un plat
     public void insertPlat(String nomTable, Date date, int idPlat, float quantite){
         String dateFormate = "" + new SimpleDateFormat("EEEE d MMMM").format(date); //Met la date de la journée dans le format ex:"Dimanche 2 Mai"
 
@@ -123,6 +124,24 @@ public class DbUserManager extends SQLiteOpenHelper {
 
         Log.i( "DATABASE", "insertPlat invoked"); // Affichage de debugage dans les logs
     }
+
+    // Méthode : Supprimer un plat
+    public void deletePlat(String nomTable, int idPlat)
+    {
+        try {
+            //execute la requette dans la table
+            this.getWritableDatabase().execSQL(
+                    "DELETE FROM " + nomTable + "WHERE " + KEY_ID_PLAT + "=" + "'" + idPlat + "'"
+            );
+        } catch (SQLiteException e) {
+            // le tuple existe deja
+        }
+
+        Log.i( "DATABASE", "delatePlat invoked"); // Affichage de debugage dans les logs
+    }
+
+
+
 
     public void updatePlat(String nomTable, Date date, int idPlat, float quantite){
         //a faire
@@ -160,4 +179,6 @@ public class DbUserManager extends SQLiteOpenHelper {
 
         return listPlat;
     }
+
+
 }
