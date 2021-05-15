@@ -27,6 +27,7 @@ public class EditProfileFragment extends Fragment {
     private EditText inputSurname;
     private EditText inputAge;
     private EditText inputPoids;
+    private EditText inputTaille;
 
     private SharedPreferences prefs;
     private Button button;
@@ -43,21 +44,24 @@ public class EditProfileFragment extends Fragment {
         prefs = getContext().getSharedPreferences("MY_DATA",MODE_PRIVATE);
         String nom = prefs.getString("MON_NOM","");
         String prenom = prefs.getString("MON_PRENOM","");
-        int age = prefs.getInt("MON_Age",0);
-        int poids = prefs.getInt("MON_POIDS", 0);
-        String sexe = prefs.getString("MON_SEXE","");
+        int age = prefs.getInt("MON_AGE",1);
+        int poids = prefs.getInt("MON_POIDS", 1);
+        //String sexe = prefs.getString("MON_SEXE","");
+        int taille = prefs.getInt("MA_TAILLE",100);
 
 
         inputName =(EditText) view.findViewById(R.id.inputName);
         inputSurname =(EditText) view.findViewById(R.id.inputSurname);
         inputAge =(EditText) view.findViewById(R.id.inputAge);
         inputPoids =(EditText) view.findViewById(R.id.inputPoids);
+        inputTaille = (EditText) view.findViewById(R.id.inputTaille);
 
         //on set les sharedPref
         inputName.setText(nom);
         inputSurname.setText(prenom);
         inputAge.setText(age+"");
         inputPoids.setText(poids+"");
+        inputTaille.setText(taille+"");
 
 
         //bouton de validation et sauvegarde
@@ -69,7 +73,7 @@ public class EditProfileFragment extends Fragment {
                 String prenom=inputSurname.getText().toString();
                 int age=Integer.parseInt(inputAge.getText().toString());
                 int poids=Integer.parseInt(inputPoids.getText().toString());
-
+                int taille = Integer.parseInt(inputTaille.getText().toString());
 
 
                 //sauvegarde des datas
@@ -78,7 +82,8 @@ public class EditProfileFragment extends Fragment {
                 editor.putString("MON_PRENOM",prenom);
                 editor.putInt("MON_AGE",age);
                 editor.putInt("MON_POIDS",poids);
-                editor.putString("MON_SEXE",sexe);
+                editor.putInt("MA_TAILLE",taille);
+                //editor.putString("MON_SEXE",sexe);
                 editor.apply();
                 //return to profile
                 FragmentTransaction fragmentTransaction = Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction();

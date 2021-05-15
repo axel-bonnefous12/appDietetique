@@ -1,10 +1,12 @@
 package iut.montpellier.appdietetique.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -40,10 +42,12 @@ public class UserFragment extends Fragment{
     private TextView prenom;
     private TextView age;
     private TextView poids;
+    private TextView taille;
 
     View view;
     Button button_change_fragment;
 
+    @SuppressLint("ResourceAsColor")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
@@ -52,6 +56,7 @@ public class UserFragment extends Fragment{
         prenom = view.findViewById(R.id.champPrenom);
         age = view.findViewById(R.id.champAge);
         poids = view.findViewById(R.id.champPoids);
+        taille = view.findViewById(R.id.champTaille);
 
         Button button =(Button) view.findViewById(R.id.btn_profile);
         Button button2 =(Button) view.findViewById(R.id.btn_graphique_fragment); // Bouton GraphiqueFragment
@@ -59,14 +64,16 @@ public class UserFragment extends Fragment{
         SharedPreferences prefs = getContext().getSharedPreferences("MY_DATA",MODE_PRIVATE);
         String name=prefs.getString("MON_NOM","pas de nom");
         String surname=prefs.getString("MON_PRENOM","pas de Prenom");
-        int monAge=prefs.getInt("MON_AGE", 0);
-        int monPoids=prefs.getInt("MON_POIDS", 0);
+        int monAge=prefs.getInt("MON_AGE", 1);
+        int monPoids=prefs.getInt("MON_POIDS", 1);
+        int maTaille=prefs.getInt("MA_TAILLE",100);
 
 
         this.nom.setText(name);
         this.prenom.setText(surname);
         this.age.setText(monAge+"");
         this.poids.setText(monPoids+"");
+        this.taille.setText(maTaille+"");
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,10 +92,71 @@ public class UserFragment extends Fragment{
         sexeSpinner.setAdapter(sexeSpinnerAdapter);
 
        //spinner choix profil activité
-        /*Spinner profilSpinner = (Spinner)view.findViewById(R.id.spinnerActivite);
+        Spinner profilSpinner = (Spinner)view.findViewById(R.id.spinnerActivite);
         ArrayAdapter<String> profilSpinnerAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.profil));
         profilSpinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        profilSpinner.setAdapter(profilSpinnerAdapter);*/
+        profilSpinner.setAdapter(profilSpinnerAdapter);
+
+        //calcul IMC poids/(taille en cm * taille en cm) on cast et on arrondi au supérieur pour l'indice Imc en valeur
+        TextView imcText = view.findViewById(R.id.imcText);
+        TextView Imc = view.findViewById(R.id.ValeurImc);
+        float T1= ((float)(maTaille)/100);
+        float imcFloat = (float) Math.ceil(monPoids/(T1*T1));
+        Imc.setText(imcFloat+"");
+
+         if(imcFloat<17){
+             imcText.setText("dénutrition");
+         }
+         else if(imcFloat>=17 && imcFloat <=18){
+            imcText.setText("maigreur");
+         }
+         else if(imcFloat>=19 && imcFloat <=25){
+             imcText.setText("corpulence normale");
+         }
+         else if(imcFloat>=26 && imcFloat <=30){
+             imcText.setText("surpoids");
+         }
+         else if(imcFloat>=31 && imcFloat <=35){
+             imcText.setText("obésité modéré");
+         }
+         else if(imcFloat>=36 && imcFloat <=40){
+             imcText.setText("obésité sévère");
+         }
+         else{
+             imcText.setText("obésité morbide");
+         }
+
+         //besoin énergétique
+        TextView valeurApport = view.findViewById(R.id.valeurColorie);
+         float calculEnergieKj=0;
+         final String sexe ="homme";//(String) sexeSpinner.getSelectedItem().toString();
+
+         if(sexe=="femme"){
+             if(monAge>=18 && monAge<=29){
+                calculEnergieKj =  (float) (((0.062*monPoids)+2.036)*239);
+             }
+             if(monAge>=30 && monAge<=60){
+                 calculEnergieKj = (float) ((0.034*monPoids)+3.538)*239;
+             }
+             else{
+                 calculEnergieKj =  (float)((0.038*monPoids)+3.538)*239;
+             }
+             Math.floor(calculEnergieKj);
+             valeurApport.setText(calculEnergieKj+"");
+         }
+         if(sexe=="homme"){
+             if(monAge>=18 && monAge<=29){
+                 calculEnergieKj = (float) ((0.063 * monPoids) + 2.896)*(239);
+             }
+             if(monAge>=30 && monAge<=60){
+                 calculEnergieKj = (float) (0.048*monPoids+3.653)*239;
+             }
+             else{
+                 calculEnergieKj = (float) ((0.049*monPoids)+2.459)*239;
+             }
+             Math.floor(calculEnergieKj);
+             valeurApport.setText(calculEnergieKj+"");
+         }
 
         //Se rendre sur le Fragment Graphique
         button2.setOnClickListener(new View.OnClickListener() {
