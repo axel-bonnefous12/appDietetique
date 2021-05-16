@@ -30,6 +30,8 @@ import com.anychart.charts.Pie;
 import com.anychart.enums.Align;
 import com.anychart.enums.LegendLayout;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -47,6 +49,9 @@ public class UserFragment extends Fragment{
     private TextView taille;
     private TextView sexeUser;
     private TextView activiteUser;
+    private float facteurActivite=0;//multiplicateur coefficient activite
+    private float calculEnergieKj = 0;//énergie journalier
+
 
 
 
@@ -118,7 +123,7 @@ public class UserFragment extends Fragment{
             TextView Imc = view.findViewById(R.id.ValeurImc);
             float T1 = ((float) (maTaille) / 100);
             float imcFloat = (float) Math.ceil(monPoids / (T1 * T1));
-            Imc.setText(imcFloat + "");
+            Imc.setText(imcFloat + "");//set la valeur numérique de l'IMC
             if (imcFloat < 17) {
                 imcText.setText("dénutrition");
             } else if (imcFloat >= 17 && imcFloat <= 18) {
@@ -135,12 +140,11 @@ public class UserFragment extends Fragment{
                 imcText.setText("obésité morbide");
             }
         }
-
          //besoin énergétique selon une femme ou un homme
         if(monAge !=0 && monSexe!="") {
             TextView valeurApport = view.findViewById(R.id.valeurColorie);
-            float calculEnergieKj = 0;
              String sexe = monSexe ;
+              facteurActivite =  multiplicateurActivite();//on appelle la fonction
 
             if ( sexe.equals("féminin")) {
                 if (monAge >= 18 && monAge <= 29) {
@@ -152,8 +156,6 @@ public class UserFragment extends Fragment{
                 else {
                     calculEnergieKj = (float) ((0.038*monPoids) + 3.538)*239;
                 }
-                Math.floor(calculEnergieKj);
-                valeurApport.setText(calculEnergieKj + "");
             }
           else{
                 if (monAge >= 18 && monAge <= 29) {
@@ -165,9 +167,10 @@ public class UserFragment extends Fragment{
                 else {
                     calculEnergieKj = (float) ((0.049*monPoids) + 2.459)*239;
                 }
-                Math.floor(calculEnergieKj);
-                valeurApport.setText(calculEnergieKj + "");
             }
+            calculEnergieKj*=facteurActivite;
+            Math.floor(calculEnergieKj);
+            valeurApport.setText(calculEnergieKj + "");
         }
 
         //Se rendre sur le Fragment Graphique
@@ -181,6 +184,18 @@ public class UserFragment extends Fragment{
         
         return view;
     }
+    private float multiplicateurActivite(){
+        String textActivite = activiteUser.getText().toString();
+        if (textActivite.equals("sédentaire"))
+            this.facteurActivite= (float) 1.2;
+        else if(textActivite.equals("légèrement actif"))
+            this.facteurActivite= (float) 1.375;
+        else if(textActivite.equals("actif"))
+            this.facteurActivite= (float) 1.55;
+        else
+            this.facteurActivite= (float) 1.725;
+        return  facteurActivite;
+    }
 
     private void allerGraphiqueFragment()
     {
@@ -190,6 +205,7 @@ public class UserFragment extends Fragment{
         fragmentTransaction.replace(R.id.fragment_container, graphiqueFragment);
         fragmentTransaction.commit();
     }
+
 
 
 
