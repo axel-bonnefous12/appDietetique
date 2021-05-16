@@ -178,11 +178,9 @@ public class UserFragment extends Fragment{
                 allerGraphiqueFragment();
             }
         });
-
-
+        
         return view;
     }
-
 
     private void allerGraphiqueFragment()
     {

@@ -8,11 +8,6 @@
     android:background="@color/white"
     android:gravity="center_horizontal">
 
-    <Button
-        android:id="@+id/btn_graphique_fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Graphique" />
 
     <TextView
         android:layout_width="match_parent"
@@ -182,7 +177,7 @@
         android:id="@+id/laytoutActivite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50sp"
+        android:layout_marginTop="100sp"
         android:layout_below="@id/layout_data_user"
         android:orientation="horizontal"
         >
@@ -261,6 +256,15 @@
            </TableRow>
         </TableLayout>
     </LinearLayout>
+    <Button
+        android:id="@+id/btn_graphique_fragment"
+        android:layout_width="120sp"
+        android:layout_height="18sp"
+        android:layout_below="@id/icon_user"
+        android:textColor="@color/white"
+        android:layout_marginLeft="5sp"
+        android:background="@drawable/rounded_button"
+        android:text="Voir mes stats" />
 
 
 

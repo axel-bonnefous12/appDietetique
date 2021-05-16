@@ -40,7 +40,6 @@ public class EditProfileFragment extends Fragment {
     private TextView inputSexe;
     private TextView inputActivite;
 
-
     private SharedPreferences prefs;
     private Button button;
 
@@ -88,7 +87,7 @@ public class EditProfileFragment extends Fragment {
                     final ArrayList<Integer> selectedList = new ArrayList<>();
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
 
-                    builder.setTitle("votre faire UN choix");
+                    builder.setTitle("veuillez faire UN choix");
                     builder.setMultiChoiceItems(items, null,
                             new DialogInterface.OnMultiChoiceClickListener() {
                                 @Override
@@ -111,7 +110,6 @@ public class EditProfileFragment extends Fragment {
                                 selectedStrings.add(items[selectedList.get(j)]);
                                 inputActivite.setText(selectedStrings.get(j).toString());
                             }
-
                             //Toast.makeText(view.getContext(), "Items selected are: " + Arrays.toString(selectedStrings.toArray()), Toast.LENGTH_SHORT).show();
                         }
                     });
