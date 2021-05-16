@@ -177,7 +177,7 @@
         android:id="@+id/laytoutActivite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100sp"
+        android:layout_marginTop="60sp"
         android:layout_below="@id/layout_data_user"
         android:orientation="horizontal"
         >
@@ -189,7 +189,7 @@
             android:textAllCaps="true"
             android:textSize="20sp"
             android:layout_marginLeft="15sp"
-            android:text="niveau d'activité:"/>
+            android:text="niveau d'activité"/>
         <TextView
             android:id="@+id/champActivite"
             android:layout_width="wrap_content"
@@ -214,7 +214,7 @@
             android:layout_height="match_parent">
             <TableRow>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100sp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/darkOrange"
                     android:textSize="20sp"
@@ -225,21 +225,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:layout_marginLeft="-80sp"
                     android:hint="0"
                     />
-                <TextView
-                    android:id="@+id/imcText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="-80sp"
-                    android:text="pas de données"/>
             </TableRow>
            <TableRow>
                <TextView
-                   android:layout_width="wrap_content"
+                   android:layout_width="200sp"
                    android:layout_height="wrap_content"
                    android:textColor="@color/darkOrange"
                    android:textSize="20sp"
@@ -256,6 +247,16 @@
            </TableRow>
         </TableLayout>
     </LinearLayout>
+    <TextView
+        android:id="@+id/imcText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="80sp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/laytoutActivite"
+        android:text="pas de données"/>
     <Button
         android:id="@+id/btn_graphique_fragment"
         android:layout_width="120sp"
