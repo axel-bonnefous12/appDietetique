@@ -170,7 +170,7 @@ public class UserFragment extends Fragment{
             }
             calculEnergieKj*=facteurActivite;
             Math.floor(calculEnergieKj);
-            valeurApport.setText(calculEnergieKj + "");
+            valeurApport.setText(calculEnergieKj+" calories");
         }
 
         //Se rendre sur le Fragment Graphique

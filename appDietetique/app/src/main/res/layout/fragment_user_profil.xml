@@ -234,7 +234,7 @@
                    android:textColor="@color/darkOrange"
                    android:textSize="20sp"
                    android:layout_marginLeft="15sp"
-                   android:text="Besoin cal(kj): "/>
+                   android:text="Besoin journalier: "/>
                <TextView
                    android:id="@+id/valeurColorie"
                    android:layout_width="wrap_content"
