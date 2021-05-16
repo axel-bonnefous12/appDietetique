@@ -6,39 +6,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.EditProfileFragment"
     android:orientation="vertical"
-    app:layout_anchorGravity="center_horizontal">
+    >
 
     <LinearLayout
         android:id="@+id/layout_data_user"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="150sp"
         android:orientation="vertical"
-        android:layout_marginLeft="50sp"
-        android:gravity="left">
+        android:layout_gravity="center_horizontal"
+        >
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+            <!--pas utile de mettre le nom
+           <TableRow
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="20sp"
+               android:text="Nom" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="Nom" />
-
-                <EditText
-                    android:id="@+id/inputName"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:inputType="text"
-                    />
-            </TableRow>
+           <EditText
+               android:id="@+id/inputName"
+               android:layout_width="150dp"
+               android:layout_height="wrap_content"
+               android:textSize="20sp"
+               android:inputType="text"
+               />
+           </TableRow>-->
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -110,13 +110,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAllCaps="true"
+                    android:layout_marginTop="50sp"
                     android:textSize="20sp"
                     android:text="Sexe: " />
                 <TextView
                     android:id="@+id/sexeInput"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="50sp"
                     android:textSize="20sp"
                     android:hint="féminin/masculin"
                     />
@@ -125,7 +126,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="18sp"
                     android:layout_marginLeft="10sp"
-                    android:background="@drawable/rounded_button"
+                    android:layout_marginTop="50sp"
+                    android:background="@drawable/rounded_button_other"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:text="changer"
@@ -150,18 +152,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="18sp"
                     android:layout_marginLeft="10sp"
-                    android:background="@drawable/rounded_button"
+                    android:background="@drawable/rounded_button_other"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:text="changer"
                     />
             </TableRow>
         </TableLayout>
-
         <Button
             android:id="@+id/btn_sauvegarder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_button_other"
             android:text="sauvegarder"
             />
     </LinearLayout>

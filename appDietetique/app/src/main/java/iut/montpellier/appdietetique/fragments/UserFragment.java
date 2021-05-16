@@ -42,7 +42,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class UserFragment extends Fragment{
 
-    private TextView nom;
+    //private TextView nom;
     private TextView prenom;
     private TextView age;
     private TextView poids;
@@ -63,7 +63,7 @@ public class UserFragment extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         view= inflater.inflate(R.layout.fragment_user_profil,container, false);
-        nom = view.findViewById(R.id.champNom);
+        //nom = view.findViewById(R.id.champNom);
         prenom = view.findViewById(R.id.champPrenom);
         age = view.findViewById(R.id.champAge);
         poids = view.findViewById(R.id.champPoids);
@@ -76,17 +76,17 @@ public class UserFragment extends Fragment{
 
         //sharedPreferences
         SharedPreferences prefs = getContext().getSharedPreferences("MY_DATA",MODE_PRIVATE);
-        String name=prefs.getString("MON_NOM","pas de nom");
+        //String name=prefs.getString("MON_NOM","pas de nom");
         String surname=prefs.getString("MON_PRENOM","pas de Prenom");
         int monAge=prefs.getInt("MON_AGE", 1);
         int monPoids=prefs.getInt("MON_POIDS", 1);
         int maTaille=prefs.getInt("MA_TAILLE",100);
         String monSexe=prefs.getString("MON_SEXE","féminin/masculin");
-        String monActivite = prefs.getString("MON_ACTIVITE","activité");
+        String monActivite = prefs.getString("MON_ACTIVITE","pas d'activité");
 
-        this.nom.setText(name);
+        //this.nom.setText(name);
         this.prenom.setText(surname);
-        this.age.setText(monAge+"");
+        this.age.setText(monAge+" ans");
         this.poids.setText(monPoids+"");
         this.taille.setText(maTaille+"");
         this.sexeUser.setText(monSexe);
@@ -118,7 +118,7 @@ public class UserFragment extends Fragment{
         });*/
 
         //calcul IMC poids/(taille en cm * taille en cm) on cast et on arrondi au supérieur pour l'indice Imc en valeur
-        if(maTaille!=0 || monPoids !=0) {
+        if(maTaille!=1 && monPoids !=1) {
             TextView imcText = view.findViewById(R.id.imcText);
             TextView Imc = view.findViewById(R.id.ValeurImc);
             float T1 = ((float) (maTaille) / 100);
@@ -141,7 +141,7 @@ public class UserFragment extends Fragment{
             }
         }
          //besoin énergétique selon une femme ou un homme
-        if(monAge !=0 && monSexe!="") {
+        if(monAge !=1 && monSexe!="") {
             TextView valeurApport = view.findViewById(R.id.valeurColorie);
              String sexe = monSexe ;
               facteurActivite =  multiplicateurActivite();//on appelle la fonction

@@ -32,7 +32,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class EditProfileFragment extends Fragment {
     View view;
-    private EditText inputName;
+    //private EditText inputName;
     private EditText inputSurname;
     private EditText inputAge;
     private EditText inputPoids;
@@ -120,7 +120,7 @@ public class EditProfileFragment extends Fragment {
 
 
         prefs = getContext().getSharedPreferences("MY_DATA",MODE_PRIVATE);
-        String nom = prefs.getString("MON_NOM","");
+        //inutile on le ne veut plus //String nom = prefs.getString("MON_NOM","");
         String prenom = prefs.getString("MON_PRENOM","");
         int age = prefs.getInt("MON_AGE",1);
         int poids = prefs.getInt("MON_POIDS", 1);
@@ -129,7 +129,7 @@ public class EditProfileFragment extends Fragment {
         String activite = prefs.getString("MON_ACTIVITE","activité");
 
 
-        inputName =(EditText) view.findViewById(R.id.inputName);
+        //inputName =(EditText) view.findViewById(R.id.inputName);
         inputSurname =(EditText) view.findViewById(R.id.inputSurname);
         inputAge =(EditText) view.findViewById(R.id.inputAge);
         inputPoids =(EditText) view.findViewById(R.id.inputPoids);
@@ -137,7 +137,7 @@ public class EditProfileFragment extends Fragment {
 
 
         //on set les sharedPref
-        inputName.setText(nom);
+        //inputName.setText(nom);
         inputSurname.setText(prenom);
         inputAge.setText(age+"");
         inputPoids.setText(poids+"");
@@ -150,17 +150,17 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //on get les input Text
-                String nom=inputName.getText().toString();
+                //String nom=inputName.getText().toString();
                 String prenom=inputSurname.getText().toString();
                 int age=Integer.parseInt(inputAge.getText().toString());
                 int poids=Integer.parseInt(inputPoids.getText().toString());
                 int taille = Integer.parseInt(inputTaille.getText().toString());
                 String monSexe = prefs.getString("MON_SEXE","féminin/masculin");
-                String activite = prefs.getString("MON_ACTIVITE","activité");
+                String activite = prefs.getString("MON_ACTIVITE","pas d'activité");
 
                 //sauvegarde des datas
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("MON_NOM",nom);
+                //editor.putString("MON_NOM",nom);
                 editor.putString("MON_PRENOM",prenom);
                 editor.putInt("MON_AGE",age);
                 editor.putInt("MON_POIDS",poids);
