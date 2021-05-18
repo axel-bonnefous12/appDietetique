@@ -184,7 +184,7 @@ public class UserFragment extends Fragment{
         
         return view;
     }
-    private float multiplicateurActivite(){
+    public float multiplicateurActivite(){
         String textActivite = activiteUser.getText().toString();
         if (textActivite.equals("sédentaire"))
             this.facteurActivite= (float) 1.2;
