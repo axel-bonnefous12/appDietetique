@@ -14,9 +14,6 @@ public class Collation extends Repas{
     private static final String NOM_TABLE_REPAS = "Collation";
 
     // ----- Constructeurs ----- //
-    public Collation(float totalProteines, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
-        super(NOM_TYPE_REPAS, totalProteines, totalGlucides, totalCalories, plats);
-    }
 
     public Collation(ArrayList<Plat> plats){
         super(NOM_TYPE_REPAS, plats);

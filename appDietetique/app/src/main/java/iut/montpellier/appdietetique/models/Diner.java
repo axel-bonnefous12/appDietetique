@@ -14,9 +14,6 @@ public class Diner extends Repas{
     private static final String NOM_TABLE_REPAS = "Diner";
 
     // ----- Constructeurs ----- //
-    public Diner(float totalProteines, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
-        super(NOM_TYPE_REPAS,totalProteines, totalGlucides, totalCalories, plats);
-    }
 
     public Diner(ArrayList<Plat> plats){
         super(NOM_TYPE_REPAS, plats);

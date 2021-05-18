@@ -14,9 +14,6 @@ public class PetitDejeuner extends Repas{
     private static final String NOM_TABLE_REPAS = "PetitDejeuner";
 
     // ----- Constructeurs ----- //
-    public PetitDejeuner(float totalProteines, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
-        super(NOM_TYPE_REPAS, totalProteines, totalGlucides, totalCalories, plats);
-    }
 
     public PetitDejeuner(ArrayList<Plat> plats){
         super(NOM_TYPE_REPAS, plats);

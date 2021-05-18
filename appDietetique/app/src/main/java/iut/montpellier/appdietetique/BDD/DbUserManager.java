@@ -23,8 +23,8 @@ public class DbUserManager extends SQLiteOpenHelper {
     private static final String TABLE_NAME_DEJEUNER = "Dejeuner";
     private static final String TABLE_NAME_DINER = "Diner";
     public static final String KEY_DATE="date";
-    public static final String KEY_ID_PLAT="nom_plat";
-    public static final String KEY_NB_QUANTITE = "nb_quantite";
+    public static final String KEY_ID_PLAT="idPlat";
+    public static final String KEY_NB_QUANTITE = "nbQuantite";
 
 
     public static final String CREATE_TABLE_PETIT_DEJ = "CREATE TABLE " + TABLE_NAME_PETIT_DEJ +
@@ -60,7 +60,7 @@ public class DbUserManager extends SQLiteOpenHelper {
             ");";
 
     private static final String DATABASE_NAME = "userData.sqlite";
-    private static  final int DATABASE_VERSION = 2;
+    private static  final int DATABASE_VERSION = 3;
 
     Context context;
 

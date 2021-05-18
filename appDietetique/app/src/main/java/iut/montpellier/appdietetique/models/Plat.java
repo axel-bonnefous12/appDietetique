@@ -4,19 +4,31 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
-public class Plat implements Parcelable {
-    private int id;
-    private String nom;
-    private float proteines;
-    private float glucides;
-    private float calories;
-    private float quantite;
 
-    // Attribut for parcelable interface
+/**
+ * Cette class permet de construire l'objet plat
+ */
+public class Plat implements Parcelable {
+    private int id; //id du plat dans la bdd
+    private String nom; //nom du plat dans la bdd
+    private float proteines; //proteines du plat en fonction de la quantite
+    private float glucides; //glucides du plat en fonction de la quantite
+    private float calories; //calories du plat en fonction de la quantite
+    private float quantite; //quantite de plat mangé
+
+    // Attributes for parcelable interface
     private Parcel parcel;
     private int i;
 
-    // Constructeur
+    /**
+     * Constructeur
+     * @param id du plat dans la bdd
+     * @param nom du plat dans la bdd
+     * @param proteines du plat en fonction de la quantite
+     * @param glucides du plat en fonction de la quantite
+     * @param calories du plat en fonction de la quantite
+     * @param quantite mangé
+     */
     public Plat(int id, String nom, float proteines, float glucides, float calories, float quantite) {
         this.id = id;
         this.nom = nom;
@@ -67,7 +79,7 @@ public class Plat implements Parcelable {
     }
 
     public void setQuantite(float quantite) {
-        updateValeursApports(this.quantite, quantite);
+        updateValeursApports(this.quantite, quantite); //met a jour les apports en fonction de la quantite
         this.quantite = quantite;
     }
 
@@ -87,6 +99,11 @@ public class Plat implements Parcelable {
                 '}';
     }
 
+    /**
+     * Cette fonction met a jour les apports du plat en fonction de la nouvelle quantite
+     * @param ancienneQuantite ancienne quantite
+     * @param nouvelleQuantite nouvelle quantite
+     */
     private void updateValeursApports(float ancienneQuantite, float nouvelleQuantite){
         proteines = (proteines * nouvelleQuantite) /ancienneQuantite;
         glucides = (glucides * nouvelleQuantite) /ancienneQuantite;

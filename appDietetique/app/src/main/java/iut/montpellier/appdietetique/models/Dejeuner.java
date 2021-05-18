@@ -13,9 +13,6 @@ public class Dejeuner extends Repas{
     private static final String NOM_TABLE_REPAS = "Dejeuner";
 
     // ----- Constructeurs ----- //
-    public Dejeuner(float totalProteines, float totalGlucides, float totalCalories, ArrayList<Plat> plats) {
-        super(NOM_TYPE_REPAS, totalProteines, totalGlucides, totalCalories, plats);
-    }
 
     public Dejeuner(ArrayList<Plat> plats){
         super(NOM_TYPE_REPAS, plats);
