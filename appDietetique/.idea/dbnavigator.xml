@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="520d5c1a-1407-45f0-a877-03455b64d352">
-        <schema name="main" object-types="view, table" />
+        <schema name="main" object-types="index, table, view, constraint, column, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>
@@ -36,7 +36,9 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="520d5c1a-1407-45f0-a877-03455b64d352" object-ref="schemas/main/tables/Plats" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="520d5c1a-1407-45f0-a877-03455b64d352" />
@@ -87,7 +89,7 @@
           <port value="1234" />
           <database value="database" />
           <files>
-            <file path="$PROJECT_DIR$/app/src/main/assets/data.sqlite" schema="main" />
+            <file path="$USER_HOME$/Downloads/data.sqlite" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
