@@ -40,7 +40,7 @@ public class DbUserManager extends SQLiteOpenHelper {
             " " + KEY_DATE + " VARCHAR(50)," +
             " " + KEY_ID_PLAT + " INT," +
             " " + KEY_NB_QUANTITE + " REAL NOT NULL," +
-            " " + "PRIMARY KEY(" + KEY_DATE + "," + KEY_ID_PLAT + ")" +
+            " " + "PRIMARY KEY(" +  KEY_DATE + "," + KEY_ID_PLAT + ")" +
             ");";
 
     public static final String CREATE_TABLE_DEJEUNER = "CREATE TABLE " + TABLE_NAME_DEJEUNER +
