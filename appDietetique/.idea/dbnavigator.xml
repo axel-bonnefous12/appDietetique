@@ -45,9 +45,7 @@
     <filter-actions connection-id="520d5c1a-1407-45f0-a877-03455b64d352" dataset="main.Plats" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
-    <last-used-providers>
-      <object-type object-type="TABLE" editor-provider="DATA" />
-    </last-used-providers>
+    <last-used-providers />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />

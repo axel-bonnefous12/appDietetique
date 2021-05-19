@@ -57,7 +57,7 @@ public class PlatManager {
             p.setId(c.getInt(c.getColumnIndex(KEY_ID_PLAT)));
             p.setNom(c.getString(c.getColumnIndex(KEY_NOM_PLAT)));
             p.setProteines(c.getFloat(c.getColumnIndex(KEY_NB_PROTEINES)));
-            p.setGlucides(c.getFloat(c.getColumnIndex(KEY_NB_PROTEINES)));
+            p.setGlucides(c.getFloat(c.getColumnIndex(KEY_NB_GLUCIDES)));
             p.setCalories(c.getFloat(c.getColumnIndex(KEY_NB_CALORIES)));
             c.close();
         }
