@@ -56,7 +56,7 @@ public class UserFragment extends Fragment{
 
 
     View view;
-    Button button_change_fragment;
+
 
     @SuppressLint("ResourceAsColor")
     @Nullable
@@ -99,7 +99,7 @@ public class UserFragment extends Fragment{
                 FragmentTransaction fragmentTransaction = Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction();
                 EditProfileFragment editProfileFragment = new EditProfileFragment();
 
-                fragmentTransaction.replace(R.id.fragment_container, editProfileFragment); // remplacer le fragment actuel avec le fragment repas
+                fragmentTransaction.replace(R.id.fragment_container, editProfileFragment); // remplacer le fragment actuel avec le fragment editProfileFragment
                 fragmentTransaction.commit(); //commit du fragment
             }
         });
@@ -142,11 +142,10 @@ public class UserFragment extends Fragment{
         }
          //besoin énergétique selon une femme ou un homme
         if(monAge !=1 && monSexe!="") {
-            TextView valeurApport = view.findViewById(R.id.valeurColorie);
-             String sexe = monSexe ;
+            TextView valeurApport = view.findViewById(R.id.valeurColorie);//get l'id du textView correspondant aux apports énergétiques
               facteurActivite =  multiplicateurActivite();//on appelle la fonction
 
-            if ( sexe.equals("féminin")) {
+            if ( monSexe.equals("féminin")) {
                 if (monAge >= 18 && monAge <= 29) {
                     calculEnergieKj = (float) ((0.062*monPoids) + 2.036)*239;
                 }
@@ -170,7 +169,7 @@ public class UserFragment extends Fragment{
             }
             calculEnergieKj*=facteurActivite;
             Math.floor(calculEnergieKj);
-            valeurApport.setText(calculEnergieKj+" calories");
+            valeurApport.setText(calculEnergieKj+" calories");//set la valeur du textView correspondant aux apports énergétiques
         }
 
         //Se rendre sur le Fragment Graphique

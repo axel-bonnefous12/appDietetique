@@ -101,7 +101,7 @@ public class EditProfileFragment extends Fragment {
                                 }
                             });
 
-                    builder.setPositiveButton("DONE", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             ArrayList<String> selectedStrings = new ArrayList<>();
