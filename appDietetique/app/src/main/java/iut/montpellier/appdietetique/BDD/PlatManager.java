@@ -18,6 +18,7 @@ public class PlatManager {
     public static final String KEY_NB_GLUCIDES = "nb_glucides";
     public static final String KEY_NB_CALORIES = "nb_calories";
 
+    // NOM DE TABLE A CHANGER
     public static final String CREATE_TABLE_ANIMAL = "CREATE TABLE " + TABLE_NAME +
             " (" +
             " " + KEY_ID_PLAT + " INTEGER primary key," +

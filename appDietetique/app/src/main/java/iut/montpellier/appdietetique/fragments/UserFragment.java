@@ -49,7 +49,7 @@ public class UserFragment extends Fragment{
     private TextView taille;
     private TextView sexeUser;
     private TextView activiteUser;
-    private float facteurActivite=0;//multiplicateur coefficient activite
+    private float facteurActivite=1;//multiplicateur coefficient activite
     private float calculEnergieKj = 0;//énergie journalier
 
 
@@ -118,7 +118,7 @@ public class UserFragment extends Fragment{
         });*/
 
         //calcul IMC poids/(taille en cm * taille en cm) on cast et on arrondi au supérieur pour l'indice Imc en valeur
-        if(maTaille!=1 && monPoids !=1) {
+        if(maTaille>1 && monPoids >1) {
             TextView imcText = view.findViewById(R.id.imcText);
             TextView Imc = view.findViewById(R.id.ValeurImc);
             float T1 = ((float) (maTaille) / 100);
@@ -141,11 +141,11 @@ public class UserFragment extends Fragment{
             }
         }
          //besoin énergétique selon une femme ou un homme
-        if(monAge !=1 && monSexe!="") {
+        if(monAge >1 && monSexe!="") {
             TextView valeurApport = view.findViewById(R.id.valeurColorie);//get l'id du textView correspondant aux apports énergétiques
+            String sexe = monSexe ;
               facteurActivite =  multiplicateurActivite();//on appelle la fonction
-
-            if ( monSexe.equals("féminin")) {
+            if ( sexe.equals("féminin")) {
                 if (monAge >= 18 && monAge <= 29) {
                     calculEnergieKj = (float) ((0.062*monPoids) + 2.036)*239;
                 }
@@ -191,7 +191,7 @@ public class UserFragment extends Fragment{
             this.facteurActivite= (float) 1.375;
         else if(textActivite.equals("actif"))
             this.facteurActivite= (float) 1.55;
-        else
+        else if(textActivite.equals("très actif"))
             this.facteurActivite= (float) 1.725;
         return  facteurActivite;
     }
