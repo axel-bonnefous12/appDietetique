@@ -1,4 +1,4 @@
-#BeDiet
+##BeDiet
 
 ![](https://webinfo.iutmontp.univ-montp2.fr/~debizett/ressources/logo.png)
 
