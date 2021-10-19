@@ -16,7 +16,7 @@ Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about St
 
  List item
 
- 1. [x] **Salut bro**
+ 1. [] **Salut bro**
 
 # Files
 
